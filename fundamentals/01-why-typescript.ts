@@ -1,12 +1,11 @@
 
-const input = "Typescript Bootcamp";
+const courseName = "Typescript Bootcamp";
 
-printCourseName(input);
+printCourseName(courseName);
 
 
-function printCourseName(name:string) {
+function printCourseName(name :string) {
 
-  console.log('The course name is ' + name.toUpperCase());
+    console.log("The course name is " + name.toUpperCase());
 
 }
-
