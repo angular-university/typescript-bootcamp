@@ -1,0 +1,14 @@
+{
+  "name": "typescript-fundamentals",
+  "version": "1.0.0",
+  "description": "Typescript Fundamentals",
+  "main": "main.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "JhadesDev <jhades.dev@gmail.com> (http://blog.jhades.org/)",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
