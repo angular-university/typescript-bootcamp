@@ -1,8 +1,8 @@
-# The Ultimate Typescript Bootcamp
+# Typescript: The Ultimate Bootcamp
 
-This repository contains the code of the [The Ultimate Typescript Bootcamp](https://angular-university.io/course/typescript-bootcamp) video course.
+This repository contains the code of the [Typescript: The Ultimate Bootcamp](https://angular-university.io/course/typescript-bootcamp) video course.
 
-![The Ultimate Typescript Bootcamp](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
+![Typescript: The Ultimate Bootcamp](https://angular-university.s3-us-west-1.amazonaws.com/course-images/typescript-bootcamp-2.jpg)
 
 You can find the starting point of the course in the [1-start branch](https://github.com/angular-university/typescript-bootcamp/tree/1-start).
 
