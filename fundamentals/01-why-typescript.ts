@@ -1,5 +1,8 @@
 
-const courseName = "Typescript Bootcamp";
+let courseName = "Typescript Bootcamp";
+
+
+courseName = "New Value";
 
 printCourseName(courseName);
 
