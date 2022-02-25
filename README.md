@@ -1,4 +1,4 @@
-# The Ultimate Typescript Bootcamp
+# Typescript: The Ultimate Bootcamp
 
 This repository contains the code of the [The Ultimate Typescript Bootcamp](https://angular-university.io/course/typescript-bootcamp) video course.
 
