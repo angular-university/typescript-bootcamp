@@ -1,0 +1,13 @@
+{
+  "name": "typescript-fundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
