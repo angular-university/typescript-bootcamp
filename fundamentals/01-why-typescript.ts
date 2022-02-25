@@ -1,11 +1,12 @@
 
-let courseName = "Typescript Bootcamp";
+const courseName = "Typescript Bootcamp";
 
+if (courseName) {
 
-courseName = "New Value";
+    const subtitle = "Learn the language fundamentals, build practical projects";
 
-printCourseName(courseName);
-
+    printCourseName(courseName);
+}
 
 function printCourseName(name :string) {
 
