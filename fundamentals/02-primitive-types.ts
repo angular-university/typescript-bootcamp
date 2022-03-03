@@ -28,8 +28,12 @@ function printCourse(title:string, subtitle:string, lessonsCount:number) {
 
     let fullTitle = title + subtitle;
 
-
 }
+
+// primitive types: object
+
+
+
 
 
 
