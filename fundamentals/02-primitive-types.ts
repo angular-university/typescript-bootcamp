@@ -11,9 +11,7 @@ let title = "Typescript Bootcamp";
 
 let subtitle = "Learn the language fundamentals, build practical projects";
 
-let fullTitle = "Full title:" + title + ": " + subtitle;
-
-fullTitle = 10;
+let fullTitle = `Full title:${title}: ${subtitle}`;
 
 console.log(`Full title: ${fullTitle}`);
 
@@ -23,6 +21,25 @@ const published = true;
 if (published) {
     console.log("The course is published.");
 }
+
+printCourse(title, subtitle, lessonsCount);
+
+function printCourse(title:string, subtitle:string, lessonsCount:number) {
+
+    let fullTitle = title + subtitle;
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
