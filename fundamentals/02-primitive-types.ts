@@ -11,7 +11,9 @@ let title = "Typescript Bootcamp";
 
 let subtitle = "Learn the language fundamentals, build practical projects";
 
-const fullTitle = `Full title: ${title}: ${subtitle}`;
+let fullTitle = "Full title:" + title + ": " + subtitle;
+
+fullTitle = 10;
 
 console.log(`Full title: ${fullTitle}`);
 
