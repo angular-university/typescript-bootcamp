@@ -1,14 +1,11 @@
 
+let course = null;
 
+console.log(course?.textFields?.title);
 
-let title:string = null;
-
-console.log("title = " + title);
-
-if (!title) {
-    console.log("The value of title is not known yet.");
+if (course?.textFields?.title) {
+    console.log(`The title is ${course.textFields.title}`);
 }
-
 
 
 
