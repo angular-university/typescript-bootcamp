@@ -1,11 +1,24 @@
 
-let course = null;
+let course = {
+    textFields: {
+        title: "Typescript Bootcamp"
+    }
+};
 
-console.log(course?.textFields?.title);
+const title = course?.textFields?.title ?? "No title found";
 
-if (course?.textFields?.title) {
-    console.log(`The title is ${course.textFields.title}`);
+logCourseTitle(course);
+
+
+function logCourseTitle(course) {
+
+    if (!course?.textFields) {
+        console.log("textFields not defined.");
+        return;
+    }
+
+    if (course.textFields.title) {
+        console.log(`The title is ${course.textFields.title}`);
+    }
 }
-
-
 
