@@ -7,9 +7,9 @@ let courseStatus:CourseStatus  = "draft";
 let newStatus:CourseStatus = "published";
 
 type Course = {
-    title:string,
+    readonly title:string,
     subtitle:string,
-    lessonsCount:number
+    lessonsCount?:number
 };
 
 let course: Course = {
