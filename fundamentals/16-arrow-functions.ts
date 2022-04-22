@@ -1,14 +1,16 @@
 
 function saveCourse(course, callback: Function) {
 
+    this.course = course;
+
     setTimeout(() => {
 
-        callback("success");
+        callback(this.course?.title ?? "unknown course");
 
     }, 1000);
 
 }
 
-const cb = () => console.log("Save successful.");
+const cb = (title:string) => console.log("Save successful.", title);
 
 saveCourse({title:"Typescript Bootcamp"}, cb);
