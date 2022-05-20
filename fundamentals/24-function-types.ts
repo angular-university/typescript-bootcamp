@@ -5,16 +5,23 @@ interface Course {
     lessonsCount:number;
 }
 
-function createCourse(title:string, subtitle:string, lessonsCount:number) {
+type CreateCourse = (title:string, subtitle:string, lessonsCount:number) => Course;
 
-    console.log(` Creating course with Title: ${title}, Subtitle: ${subtitle} lessons count: ${lessonsCount}`);
+type OnCourseCreated = (course: Course) => void;
+
+const createCourse = (title:string, subtitle:string,
+                      lessonsCount:number, callback: OnCourseCreated) => {
+
+    console.log(` Creating course with Title: ${title}, 
+    Subtitle: ${subtitle} lessons count: ${lessonsCount}`);
 
     const course = {
         title,
         subtitle,
         lessonsCount
-    } as Course;
+    };
 
+    callback(course);
 
     return course;
 }
