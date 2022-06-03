@@ -37,10 +37,10 @@ if (typeof unknownValue == "string") {
     let value14: string = unknownValue;
 }
 
-//let value14: string = unknownValue;
-//let value15: object = unknownValue;
-//let value16: any[] = unknownValue;
-//let value17: Function = unknownValue;
+// let value14: string = unknownValue;
+// let value15: object = unknownValue;
+// let value16: any[] = unknownValue;
+// let value17: Function = unknownValue;
 
 
 

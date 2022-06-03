@@ -11,3 +11,18 @@ const course: unknown = {
     lessonsCount: 10
 };
 
+if (isCourse(course)) {
+
+}
+
+function isCourse(value: unknown): value is Course {
+
+    const course = value as Course;
+
+    return course?.title != null && course?.subtitle != null;
+}
+
+
+
+
+
