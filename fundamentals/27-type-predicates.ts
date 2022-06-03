@@ -11,19 +11,3 @@ const course: unknown = {
     lessonsCount: 10
 };
 
-
-if ( isCourse(course) ) {
-    console.log(`value is a course: ${JSON.stringify(course, null, 4)}`);
-}
-else {
-    console.log(`value is not a course.`);
-}
-
-function isCourse(value: unknown): value is Course {
-
-    const course = value as Course;
-
-    return course.title != null && course.subtitle  != null && course.lessonsCount != null;
-
-}
-
