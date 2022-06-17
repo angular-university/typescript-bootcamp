@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ESNext"
-  }
+    "target": "es5"
+  },
+  "files": [
+    "main.ts"
+  ]
 }
