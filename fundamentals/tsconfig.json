@@ -5,12 +5,9 @@
     "outDir": "dist",
     "module": "CommonJS",
     "baseUrl": "src",
-    "skipLibCheck": true,
-    "types": [
-      "express"
-    ]
+    "skipLibCheck": true
   },
   "files": [
-    "src/12-modules-imports.ts"
+    "src/32-plain-javascript.js"
   ]
 }
