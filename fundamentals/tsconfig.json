@@ -4,7 +4,11 @@
     "rootDir": "src",
     "outDir": "dist",
     "module": "CommonJS",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "types": [
+      "express"
+    ]
   },
   "files": [
     "src/12-modules-imports.ts"
