@@ -3,6 +3,8 @@ const courseName = "Typescript Bootcamp";
 
 debugger;
 
+//comment
+
 if (courseName) {
 
     const subtitle = "Learn the language fundamentals, build practical projects";

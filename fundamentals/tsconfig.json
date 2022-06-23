@@ -5,9 +5,14 @@
     "outDir": "dist",
     "module": "CommonJS",
     "baseUrl": "src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "strictNullChecks": true,
+    "removeComments": true
+
   },
   "files": [
-    "src/32-plain-javascript.js"
+    "src/01-why-typescript.ts"
   ]
 }
