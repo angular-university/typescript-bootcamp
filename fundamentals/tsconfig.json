@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "es5"
   },
-  "files": [
-    "main.ts"
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/02*"
   ]
 }
