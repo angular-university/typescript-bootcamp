@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5"
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/02*"
-  ]
+    "target": "es5",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
 }
