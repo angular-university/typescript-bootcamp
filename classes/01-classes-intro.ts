@@ -1,17 +1,12 @@
 
 class Course {
-    title:string;
-    subtitle:string;
-    creationDt: Date;
 
     constructor(
-        title:string,
-        subtitle:string,
-        creationDt: Date
+        private title:string,
+        private subtitle:string,
+        private creationDt: Date
     ) {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.creationDt = creationDt;
+
     }
 
     age() {
