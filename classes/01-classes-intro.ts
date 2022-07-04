@@ -1,11 +1,17 @@
 
 class Course {
 
+    private static TOTAL_COURSES = 0;
+
+    static readonly TYPESCRIPT_TITLE = "Typescript Bootcamp";
+
     constructor(
         private _title:string,
         private subtitle = "",
         private creationDt = new Date(2000,1,1)
     ) {
+
+        Course.TOTAL_COURSES++;
 
     }
 
@@ -29,7 +35,8 @@ class Course {
 
 }
 
-const typescript = new Course("Typescript Bootcamp");
+
+const typescript = new Course(Course.TYPESCRIPT_TITLE);
 
 console.log(typescript.title);
 
