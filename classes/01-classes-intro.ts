@@ -2,14 +2,22 @@
 class Course {
 
     constructor(
-        private title:string,
+        private _title:string,
         private subtitle:string,
         private creationDt: Date
     ) {
 
     }
 
-    age() {
+    set title(newTitle:string) {
+        if (!newTitle) {
+            throw "Title cannot be empty";
+        }
+
+        this._title = newTitle;
+    }
+
+    get age() {
         const ageInMs = new Date().getTime() - this.creationDt.getTime();
 
         return Math.round(ageInMs / 1000 / 60 / 24);
@@ -22,7 +30,9 @@ const course = new Course(
     "Learn the language fundamentals, build practical projects",
     new Date(2000,1,1));
 
-console.log(course.age());
+course.title = "New Value";
+
+console.log(course);
 
 
 
