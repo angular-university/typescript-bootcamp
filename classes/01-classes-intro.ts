@@ -3,10 +3,14 @@ class Course {
 
     constructor(
         private _title:string,
-        private subtitle:string,
-        private creationDt: Date
+        private subtitle = "",
+        private creationDt = new Date(2000,1,1)
     ) {
 
+    }
+
+    get title() {
+        return this._title;
     }
 
     set title(newTitle:string) {
@@ -25,14 +29,13 @@ class Course {
 
 }
 
-const course = new Course(
-    "Typescript Bootcamp",
-    "Learn the language fundamentals, build practical projects",
-    new Date(2000,1,1));
+const typescript = new Course("Typescript Bootcamp");
 
-course.title = "New Value";
+console.log(typescript.title);
 
-console.log(course);
+const angular = new Course("Angular For Beginners");
+
+console.log(angular.title);
 
 
 
