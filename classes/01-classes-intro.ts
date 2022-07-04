@@ -15,6 +15,10 @@ class Course {
 
     }
 
+    static printTitle(course: Course) {
+        console.log(`The title of the course ${course.title}`)
+    }
+
     get title() {
         return this._title;
     }
@@ -42,7 +46,9 @@ console.log(typescript.title);
 
 const angular = new Course("Angular For Beginners");
 
-console.log(angular.title);
+Course.printTitle(typescript);
+
+
 
 
 
