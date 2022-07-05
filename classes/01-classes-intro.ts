@@ -7,12 +7,21 @@ class Course {
 
     constructor(
         private _title:string,
+        private price:number,
         private subtitle = "",
         private creationDt = new Date(2000,1,1)
     ) {
 
+        this.validate();
+
         Course.TOTAL_COURSES++;
 
+    }
+
+    validate() {
+        if (this.price <=0) {
+            throw "Price must be larger than zero";
+        }
     }
 
     static printTitle(course: Course) {
@@ -39,12 +48,11 @@ class Course {
 
 }
 
-
-const typescript = new Course(Course.TYPESCRIPT_TITLE);
+const typescript = new Course(Course.TYPESCRIPT_TITLE, 100);
 
 console.log(typescript.title);
 
-const angular = new Course("Angular For Beginners");
+const angular = new Course("Angular For Beginners", 0);
 
 Course.printTitle(typescript);
 
