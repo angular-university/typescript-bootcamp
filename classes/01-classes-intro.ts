@@ -1,11 +1,12 @@
+import {HasId} from "./02-interfaces";
 
-class Course {
+abstract class Course implements HasId {
 
     private static TOTAL_COURSES = 0;
 
     static readonly TYPESCRIPT_TITLE = "Typescript Bootcamp";
 
-    constructor(
+    protected constructor(
         protected _title:string,
         protected price:number,
         protected subtitle = "",
@@ -18,12 +19,7 @@ class Course {
 
     }
 
-    protected validate() {
-        console.log(`Called Course validate()`);
-        if (this.price <=0) {
-            throw "Price must be larger than zero";
-        }
-    }
+    protected abstract validate();
 
     static printTitle(course: Course) {
         console.log(`The title of the course ${course.title}`)
@@ -65,9 +61,9 @@ class FreeCourse extends Course {
 
 }
 
-const typescript = new Course(Course.TYPESCRIPT_TITLE, 100);
+//const typescript = new Course(Course.TYPESCRIPT_TITLE, 100);
 
-console.log(typescript.title);
+//console.log(typescript.title);
 
 const angular = new FreeCourse("Angular For Beginners");
 
