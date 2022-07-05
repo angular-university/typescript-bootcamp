@@ -6,10 +6,10 @@ class Course {
     static readonly TYPESCRIPT_TITLE = "Typescript Bootcamp";
 
     constructor(
-        private _title:string,
-        private price:number,
-        private subtitle = "",
-        private creationDt = new Date(2000,1,1)
+        protected _title:string,
+        protected price:number,
+        protected subtitle = "",
+        protected creationDt = new Date(2000,1,1)
     ) {
 
         this.validate();
@@ -18,7 +18,7 @@ class Course {
 
     }
 
-    validate() {
+    protected validate() {
         console.log(`Called Course validate()`);
         if (this.price <=0) {
             throw "Price must be larger than zero";
@@ -59,9 +59,8 @@ class FreeCourse extends Course {
 
     }
 
-    validate() {
+    protected validate() {
         console.log(`Called FreeCourse validate()`);
-
     }
 
 }
@@ -73,6 +72,8 @@ console.log(typescript.title);
 const angular = new FreeCourse("Angular For Beginners");
 
 console.log(angular);
+
+
 
 
 
