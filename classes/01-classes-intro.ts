@@ -1,12 +1,13 @@
-import {HasId} from "./02-interfaces";
+import {HasId, HasTitle} from "./02-interfaces";
 
-abstract class Course implements HasId {
+abstract class Course implements HasTitle {
 
     private static TOTAL_COURSES = 0;
 
     static readonly TYPESCRIPT_TITLE = "Typescript Bootcamp";
 
     protected constructor(
+        public id:string,
         protected _title:string,
         protected price:number,
         protected subtitle = "",
@@ -17,6 +18,10 @@ abstract class Course implements HasId {
 
         Course.TOTAL_COURSES++;
 
+    }
+
+    printId() {
+        console.log(`The course id is ${this.id}`);
     }
 
     protected abstract validate();
@@ -47,11 +52,12 @@ abstract class Course implements HasId {
 
 class FreeCourse extends Course {
 
-    constructor( title:string,
+    constructor( id:string,
+                 title:string,
                  subtitle = "",
                  creationDt = new Date(2000,1,1)) {
 
-        super(title, 0, subtitle, creationDt);
+        super(id, title, 0, subtitle, creationDt);
 
     }
 
@@ -65,7 +71,7 @@ class FreeCourse extends Course {
 
 //console.log(typescript.title);
 
-const angular = new FreeCourse("Angular For Beginners");
+const angular = new FreeCourse("1", "Angular For Beginners");
 
 console.log(angular);
 
