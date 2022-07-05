@@ -1,4 +1,5 @@
 import {HasId, HasTitle} from "./02-interfaces";
+import {CoursesService} from "./03-singleton";
 
 abstract class Course implements HasTitle {
 
@@ -15,6 +16,8 @@ abstract class Course implements HasTitle {
     ) {
 
         this.validate();
+
+        const service = CoursesService.instance();
 
         Course.TOTAL_COURSES++;
 
@@ -72,6 +75,8 @@ class FreeCourse extends Course {
 //console.log(typescript.title);
 
 const angular = new FreeCourse("1", "Angular For Beginners");
+
+CoursesService.instance();
 
 console.log(angular);
 
