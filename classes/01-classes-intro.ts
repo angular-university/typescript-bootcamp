@@ -19,6 +19,7 @@ class Course {
     }
 
     validate() {
+        console.log(`Called Course validate()`);
         if (this.price <=0) {
             throw "Price must be larger than zero";
         }
@@ -48,13 +49,30 @@ class Course {
 
 }
 
+class FreeCourse extends Course {
+
+    constructor( title:string,
+                 subtitle = "",
+                 creationDt = new Date(2000,1,1)) {
+
+        super(title, 0, subtitle, creationDt);
+
+    }
+
+    validate() {
+        console.log(`Called FreeCourse validate()`);
+
+    }
+
+}
+
 const typescript = new Course(Course.TYPESCRIPT_TITLE, 100);
 
 console.log(typescript.title);
 
-const angular = new Course("Angular For Beginners", 0);
+const angular = new FreeCourse("Angular For Beginners");
 
-Course.printTitle(typescript);
+console.log(angular);
 
 
 
