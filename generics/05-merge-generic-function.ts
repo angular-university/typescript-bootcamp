@@ -10,10 +10,13 @@ const moreData = {
     price: 100
 }
 
-export function merge(obj1, obj2) {
-    return Object.assign(obj1, obj2);
+export function merge<T, U>(obj1: T, obj2: U) {
+    return Object.assign(obj1, obj2) as (T & U);
 }
 
 const merged = merge(someData, moreData);
+
+
+
 
 
