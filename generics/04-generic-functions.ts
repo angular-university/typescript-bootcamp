@@ -13,7 +13,7 @@ function freezeLesson(lesson:Lesson): Readonly<Lesson> {
     return Object.freeze(lesson);
 }
 
-function freeze<T>(input: T): Readonly<T> {
+function freeze<T extends object>(input: T): Readonly<T> {
     return Object.freeze(input);
 }
 
@@ -24,6 +24,8 @@ const course: Course = {
 }
 
 const frozenCourse = freeze(course);
+
+// const frozenNumber = freeze("10");
 
 //frozenCourse.title = "";
 
