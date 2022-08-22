@@ -1,6 +1,7 @@
 
 import {Log, LoggingLevel, Perf} from "./02-method-decorator";
 
+@SealClass()
 class DbService {
 
     @Perf()
