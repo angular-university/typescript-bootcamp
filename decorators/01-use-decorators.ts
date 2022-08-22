@@ -3,8 +3,8 @@ import {Log, LoggingLevel, Perf} from "./02-method-decorator";
 
 class DbService {
 
-    @Log(LoggingLevel.INFO)
     @Perf()
+    @Log(LoggingLevel.INFO)
     saveData(data:any) {
 
         console.log(`saving data in the database...`);
