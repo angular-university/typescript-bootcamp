@@ -16,6 +16,8 @@ export function Log(level: LoggingLevel): MethodDecorator {
     return (target: any, propertyKey: string,
             descriptor: PropertyDescriptor) => {
 
+
+
     }
 }
 

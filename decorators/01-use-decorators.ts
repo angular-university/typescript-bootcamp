@@ -12,7 +12,7 @@ class DbService {
 
 const db = new DbService();
 
-db.saveData({hello: "World"});
+// db.saveData({hello: "World"});
 
 
 class Course {
