@@ -3,6 +3,7 @@ import {Application} from "express";
 import {isInteger} from "./utils";
 import {getAllCourses} from "./routes/get-all-courses";
 import {root} from "./routes/root";
+import {AppDataSource} from "./data-source";
 
 const app: Application = express();
 
@@ -44,6 +45,13 @@ function startServer() {
     });
 }
 
-setupRoutes();
+AppDataSource.initialize()
+    .then(() => {
+        console.log("Data Source has been initialized!");
+        setupRoutes();
+        startServer();
+    })
+    .catch((err) => {
+        console.error("Error during Data Source initialization", err)
+    });
 
-startServer();
