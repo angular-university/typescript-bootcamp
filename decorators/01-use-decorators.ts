@@ -1,6 +1,7 @@
 
 import {Log, LoggingLevel, Perf} from "./02-method-decorator";
 import {SealClass} from "./03-class-decorator";
+import {DatabaseId} from "./04-property-decorators";
 
 @SealClass
 class DbService {
@@ -17,7 +18,7 @@ class DbService {
 
 const db = new DbService();
 
-db.saveData({hello: "World"});
+// db.saveData({hello: "World"});
 
 /*
 
@@ -32,7 +33,7 @@ Object.defineProperty(DbService, "sayHello",{
 
 class Course {
 
-    // @DatabaseId()
+    @DatabaseId()
     id:string;
 
     title:string;
@@ -47,6 +48,17 @@ class Course {
 
 }
 
+const course1 = new Course("Typescript Bootcamp");
+
+console.log(`Course 1 id: `, course1.id);
+
+const course2 = new Course("Angular Core In Depth");
+
+console.log(`Course 2 id: `, course2.id);
+
+console.log("Course 1", course1);
+
+console.log("Course 2", course2);
 
 
 
