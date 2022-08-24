@@ -22,6 +22,6 @@ export const AppDataSource = new DataSource({
         Lesson
     ],
     logging: true,
-    // synchronize: true,
+    synchronize: false,
 });
 

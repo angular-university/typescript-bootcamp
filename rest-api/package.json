@@ -8,7 +8,11 @@
     "start-server": "node dist/server.js",
     "start-dev-server": "tsc-watch --onSuccess \"node dist/server.js\"",
     "start": "npm-run-all clean build start-server",
-    "dev": "npm-run-all clean build start-dev-server"
+    "dev": "npm-run-all clean build start-dev-server",
+    "run-populate-db-script": "node dist/model/populate-db.js",
+    "populate-db": "npm-run-all clean build run-populate-db-script",
+    "run-delete-db-script": "node dist/model/delete-db.js",
+    "delete-db": "npm-run-all clean build run-delete-db-script"
   },
   "license": "MIT",
   "dependencies": {
