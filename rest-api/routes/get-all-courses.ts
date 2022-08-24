@@ -1,9 +1,16 @@
 
 import {Request, Response} from "express";
+import {AppDataSource} from "../data-source";
+import {Course} from "../model/course";
 
-export function getAllCourses(request:Request, response:Response) {
+export async function getAllCourses(request:Request, response:Response) {
 
-    response.json({hello: "World"}).status(200);
+    const courses: Course[] = await AppDataSource
+        .getRepository(Course)
+        .createQueryBuilder("courses")
+        .orderBy("courses.seqNo")
+        .getMany();
 
+    response.json({courses}).status(200);
 
 }

@@ -1,3 +1,6 @@
+
+import "reflect-metadata";
+
 import * as express from 'express';
 import {Application} from "express";
 import {isInteger} from "./utils";

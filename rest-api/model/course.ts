@@ -9,14 +9,22 @@ import {
     VersionColumn
 } from "typeorm"
 
-@Entity()
+@Entity({
+    name: "COURSES"
+})
 export class Course {
 
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column("varchar", {length: 200})
-    description:string;
+    @Column()
+    url:string;
+
+    @Column()
+    seqNo:number;
+
+    @Column()
+    title:string;
 
     @Column()
     iconUrl: string;
@@ -31,13 +39,13 @@ export class Course {
     category:string;
 
     @CreateDateColumn()
-    createDt: Date;
+    createdAt: Date;
 
     @UpdateDateColumn()
-    lastUpdateDt: Date;
+    lastUpdateAt: Date;
 
     @DeleteDateColumn()
-    deleteDt: Date;
+    deleteAt: Date;
 
     @VersionColumn()
     version: number;
