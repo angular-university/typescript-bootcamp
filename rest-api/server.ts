@@ -44,7 +44,7 @@ function startServer() {
     }
 
     app.listen(port, () => {
-        console.log(`HTTP REST API Server running at http://localhost:${port}`);
+        console.log(`HTTP REST API Server is now running at http://localhost:${port}`);
     });
 }
 
