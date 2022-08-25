@@ -30,9 +30,6 @@ export class Course {
     iconUrl: string;
 
     @Column()
-    courseListIcon: string;
-
-    @Column()
     longDescription: string;
 
     @Column()
