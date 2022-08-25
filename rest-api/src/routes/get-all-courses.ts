@@ -10,7 +10,6 @@ export async function getAllCourses(request: Request, response: Response, next: 
     try {
 
         logger.debug(`Called ${ROUTE_ID}`);
-
         // throw {error: "Throwing ERROR"};
 
         const courses: Course[] = await AppDataSource
