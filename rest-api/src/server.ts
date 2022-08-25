@@ -52,7 +52,7 @@ function startServer() {
 
 AppDataSource.initialize()
     .then(() => {
-        logger.info("Data Source has been initialized!");
+        logger.debug("Data Source has been initialized!");
         setupRoutes();
         startServer();
     })
