@@ -7,12 +7,14 @@ import {isInteger} from "./utils";
 import {getAllCourses} from "./routes/get-all-courses";
 import {root} from "./routes/root";
 import {AppDataSource} from "./data-source";
+import {logger} from "./logger";
 
 const app: Application = express();
 
 //const cors = require('cors');
 //app.use(cors({origin: true}));
 
+logger.info("Starting up REST API ...");
 
 function setupRoutes() {
 
@@ -44,17 +46,17 @@ function startServer() {
     }
 
     app.listen(port, () => {
-        console.log(`HTTP REST API Server is now running at http://localhost:${port}`);
+        logger.info(`HTTP REST API Server is now running at http://localhost:${port}`);
     });
 }
 
 AppDataSource.initialize()
     .then(() => {
-        console.log("Data Source has been initialized!");
+        logger.info("Data Source has been initialized!");
         setupRoutes();
         startServer();
     })
     .catch((err) => {
-        console.error("Error during Data Source initialization", err)
+        logger.error("Error during Data Source initialization", err);
     });
 
