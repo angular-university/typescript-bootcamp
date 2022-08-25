@@ -17,6 +17,7 @@ import {getAllCourses} from "./routes/get-all-courses";
 import {root} from "./routes/root";
 import {AppDataSource} from "./data-source";
 import {logger} from "./logger";
+import {defaultErrorHandler} from "./middleware/default-error-handler";
 
 
 logger.info("Starting up REST API ...");
@@ -26,13 +27,14 @@ const app: Application = express();
 //const cors = require('cors');
 //app.use(cors({origin: true}));
 
-function setupRoutes() {
+function setupExpress() {
 
     app.route("/").get(root);
     app.route('/api/courses').get(getAllCourses);
     //app.route('/api/courses/:id').get(getCourseById);
     //app.route('/api/lessons').get(searchLessons);
 
+    app.use(defaultErrorHandler);
 }
 
 function startServer() {
@@ -61,7 +63,7 @@ function startServer() {
 AppDataSource.initialize()
     .then(() => {
         logger.debug("Data Source has been initialized!");
-        setupRoutes();
+        setupExpress();
         startServer();
     })
     .catch((err) => {
