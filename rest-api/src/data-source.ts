@@ -4,7 +4,7 @@ import {Lesson} from "./model/lesson";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "ec2-52-30-75-37.eu-west-1.compute.amazonaws.com",
+    host: process.env.DB_HOST,
     port: 5432,
     username: "eosmrdxxecktcq",
     password: "5d9325cf2df9d60ea07db967e31def88e317ceb1fddb9ad84f74b77b84e1e79f",

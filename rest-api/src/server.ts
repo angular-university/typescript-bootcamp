@@ -1,6 +1,15 @@
 
-import "reflect-metadata";
+import * as dotenv from 'dotenv';
 
+// this needs to be called before anything, so that the environment variables are loaded
+const result = dotenv.config();
+
+if (result.error) {
+    console.log(`Error loading environment variables, aborting.`);
+    process.exit(1);
+}
+
+import "reflect-metadata";
 import * as express from 'express';
 import {Application} from "express";
 import {isInteger} from "./utils";
@@ -9,21 +18,20 @@ import {root} from "./routes/root";
 import {AppDataSource} from "./data-source";
 import {logger} from "./logger";
 
+
+logger.info("Starting up REST API ...");
+
 const app: Application = express();
 
 //const cors = require('cors');
 //app.use(cors({origin: true}));
 
-logger.info("Starting up REST API ...");
-
 function setupRoutes() {
 
     app.route("/").get(root);
     app.route('/api/courses').get(getAllCourses);
-
-//app.route('/api/courses/:id').get(getCourseById);
-
-//app.route('/api/lessons').get(searchLessons);
+    //app.route('/api/courses/:id').get(getCourseById);
+    //app.route('/api/lessons').get(searchLessons);
 
 }
 

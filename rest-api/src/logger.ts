@@ -1,7 +1,7 @@
 import * as winston from "winston";
 
 export const logger = winston.createLogger({
-    level: 'debug',
+    level: process.env.LOGGER_LEVEL,
     format: winston.format.json(),
     defaultMeta: { service: 'rest-api' },
     transports: [
