@@ -1,4 +1,8 @@
 
+:host {
+  font-family: 'Roboto';
+}
+
 .course {
     text-align: center;
     width: 390px;
@@ -8,6 +12,7 @@
 .course-thumbnail {
     width: 150px;
     margin: 20px auto 0 auto;
+    border-radius: 4px;
     display: block;
 }
 

@@ -62,12 +62,10 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
         this.loading = true;
 
-        this.coursesService.findLessons(
+        this.coursesService.findCourseLessons(
             this.course.id,
-            this.sort?.direction ?? "asc",
             this.paginator?.pageIndex ?? 0,
-            this.paginator?.pageSize ?? 3,
-            this.sort?.active ?? "seqNo")
+            this.paginator?.pageSize ?? 3)
             .pipe(
                 tap(lessons => this.lessons = lessons),
                 catchError(err => {

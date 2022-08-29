@@ -28,7 +28,7 @@ export async function findCourseByUrl(request: Request, response: Response, next
             return;
         }
 
-        response.json({course}).status(200);
+        response.json(course).status(200);
 
     } catch (error) {
         logger.error(`Error calling ${ROUTE_ID}`);
