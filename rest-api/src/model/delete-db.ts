@@ -1,3 +1,9 @@
+
+import * as dotenv from 'dotenv';
+
+// this needs to be called before anything, so that the environment variables are loaded
+const result = dotenv.config();
+
 import "reflect-metadata";
 
 import {AppDataSource} from "../data-source";

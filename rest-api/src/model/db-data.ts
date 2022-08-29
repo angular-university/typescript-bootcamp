@@ -1173,7 +1173,98 @@ export const LESSONS = {
         'seqNo': 11,
         courseId: 11,
         longDescription: ""
+    },
+
+    131: {
+        id: 131,
+        title: "Setting Up the Development Environment",
+        'duration': "0:44",
+        'seqNo': 1,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    132: {
+        id: 132,
+        title: "Why Typescript? Key Benefits of the Language",
+        'duration': "12:33",
+        'seqNo': 2,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    133: {
+        id: 133,
+        title: "Compiling Your First Typescript Program",
+        'duration': "05:18",
+        'seqNo': 3,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    134: {
+        id: 134,
+        title: "The Typescript compiler noEmitOnError flag",
+        'duration': "02:30",
+        'seqNo': 4,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    135: {
+        id: 135,
+        title: "Running a Typescript Program in a Browser",
+        'duration': "06:21",
+        'seqNo': 5,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    136: {
+        id: 136,
+        title: "Understanding the differences between const, let and var",
+        'duration': "06:23",
+        'seqNo': 6,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    137: {
+        id: 137,
+        title: "Typescript primitive types - numbers, strings and booleans",
+        'duration': "07:59",
+        'seqNo': 7,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    138: {
+        id: 138,
+        title: "Typescript Template Strings",
+        'duration': "03:48",
+        'seqNo': 8,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    139: {
+        id: 139,
+        title: "Understanding Type Inference",
+        'duration': "03:40",
+        'seqNo': 9,
+        courseId: 20,
+        longDescription: ""
+    },
+
+    140: {
+        id: 140,
+        title: "When to use Typescript Type Annotations and Why",
+        'duration': "140",
+        'seqNo': 10,
+        courseId: 20,
+        longDescription: ""
     }
+
 };
 
 export const USERS = {
