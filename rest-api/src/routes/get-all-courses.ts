@@ -3,7 +3,7 @@ import {AppDataSource} from "../data-source";
 import {Course} from "../model/course";
 import {logger} from "../logger";
 
-const ROUTE_ID = `GET /api/courses`;
+const ROUTE_ID = `getAllCourses GET /api/courses`;
 
 export async function getAllCourses(request: Request, response: Response, next: NextFunction) {
 
