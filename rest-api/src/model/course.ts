@@ -6,8 +6,9 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     DeleteDateColumn,
-    VersionColumn
+    VersionColumn, OneToMany
 } from "typeorm"
+import {Lesson} from "./lesson";
 
 @Entity({
     name: "COURSES"
@@ -35,16 +36,13 @@ export class Course {
     @Column()
     category:string;
 
+    @OneToMany(() => Lesson, lesson => lesson.course)
+    lessons: Lesson[];
+
     @CreateDateColumn()
     createdAt: Date;
 
     @UpdateDateColumn()
     lastUpdateAt: Date;
-
-    @DeleteDateColumn()
-    deleteAt: Date;
-
-    @VersionColumn()
-    version: number;
 
 }

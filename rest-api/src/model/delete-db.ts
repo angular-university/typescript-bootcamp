@@ -1,10 +1,10 @@
 
+import "reflect-metadata";
+
 import * as dotenv from 'dotenv';
 
 // this needs to be called before anything, so that the environment variables are loaded
 const result = dotenv.config();
-
-import "reflect-metadata";
 
 import {AppDataSource} from "../data-source";
 import {Course} from "./course";
@@ -19,15 +19,13 @@ async function deleteDb() {
 
     await AppDataSource
         .getRepository(Lesson)
-        .clear();
+        .delete({});
 
     console.log(`Clearing COURSES table ...`);
 
     await AppDataSource
         .getRepository(Course)
-        .clear();
-
-
+        .delete({});
 
 }
 

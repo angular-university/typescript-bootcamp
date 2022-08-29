@@ -6,35 +6,37 @@ const result = dotenv.config();
 import "reflect-metadata";
 import {AppDataSource} from "../data-source";
 import {Course} from "./course";
-import {COURSES, LESSONS} from "./db-data";
+import {COURSES} from "./db-data";
 import {Lesson} from "./lesson";
+import {DeepPartial} from "typeorm";
 
 
 async function populateDb() {
 
     await AppDataSource.initialize();
 
-    const courses = Object.values(COURSES) as Course[];
+    const courses = Object.values(COURSES) as DeepPartial<Course>[];
 
-    for (let course of courses) {
+    for (let courseData of courses) {
 
-        const courseId = course.id;
+        console.log(`Inserting course: ${courseData.title}`);
 
-        console.log(`Inserting course: ${course.title}`);
+        const course = AppDataSource.getRepository(Course).create({...courseData});
 
-        const savedCourse = await AppDataSource
-            .getRepository(Course)
-            .save(course);
+        await AppDataSource.manager.save(course);
 
-        const lessons = findLessonsForCourse(courseId);
+        for (let lessonData of courseData.lessons) {
 
-        for (let lesson of lessons) {
-            lesson.courseId = savedCourse.id;
-            console.log(`Inserting lesson: ${lesson.title}`);
-            await AppDataSource
-                .getRepository(Lesson)
-                .save(lesson);
+            console.log(`Inserting lesson: ${lessonData.title}`);
+
+            const lesson = AppDataSource.getRepository(Lesson).create({...lessonData});
+
+            lesson.course = course;
+
+            await AppDataSource.manager.save(lesson);
+
         }
+
 
     }
 
@@ -52,14 +54,6 @@ async function populateDb() {
 
     console.log(`Total lessons inserted: ${totalLessons}`);
 
-}
-
-function findLessonsForCourse(courseId:number) {
-    const lessons = Object.values(LESSONS) as Lesson[];
-
-    console.log(`total lessons ${lessons.length}, courseId = ${courseId}`);
-
-    return lessons.filter(lesson => lesson.courseId == courseId);
 }
 
 populateDb()
