@@ -20,16 +20,16 @@ import {logger} from "./logger";
 import {defaultErrorHandler} from "./middleware/default-error-handler";
 import {findCourseByUrl} from "./routes/find-course-by-url";
 import {findLessonsForCourse} from "./routes/find-lessons-for-course";
+const cors = require('cors');
 
 
 logger.info("Starting up REST API ...");
 
 const app: Application = express();
 
-//const cors = require('cors');
-//app.use(cors({origin: true}));
-
 function setupExpress() {
+
+    app.use(cors({origin: true}));
 
     app.route("/").get(root);
     app.route('/api/courses').get(getAllCourses);
