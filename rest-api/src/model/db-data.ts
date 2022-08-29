@@ -9,7 +9,98 @@ export const COURSES: any = {
         seqNo: 0,
         url: 'typescript-bootcamp',
         price: 50,
-        lessonsCount: 11,
+        lessons: [
+
+            {
+                id: 131,
+                title: "Setting Up the Development Environment",
+                'duration': "0:44",
+                'seqNo': 1,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 132,
+                title: "Why Typescript? Key Benefits of the Language",
+                'duration': "12:33",
+                'seqNo': 2,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 133,
+                title: "Compiling Your First Typescript Program",
+                'duration': "05:18",
+                'seqNo': 3,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 134,
+                title: "The Typescript compiler noEmitOnError flag",
+                'duration': "02:30",
+                'seqNo': 4,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 135,
+                title: "Running a Typescript Program in a Browser",
+                'duration': "06:21",
+                'seqNo': 5,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 136,
+                title: "Understanding the differences between const, let and var",
+                'duration': "06:23",
+                'seqNo': 6,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 137,
+                title: "Typescript primitive types - numbers, strings and booleans",
+                'duration': "07:59",
+                'seqNo': 7,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 138,
+                title: "Typescript Template Strings",
+                'duration': "03:48",
+                'seqNo': 8,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 139,
+                title: "Understanding Type Inference",
+                'duration': "03:40",
+                'seqNo': 9,
+                courseId: 20,
+                longDescription: ""
+            },
+
+            {
+                id: 140,
+                title: "When to use Typescript Type Annotations and Why",
+                'duration': "140",
+                'seqNo': 10,
+                courseId: 20,
+                longDescription: ""
+            }
+        ],
     },
 
     11: {
@@ -106,10 +197,84 @@ export const COURSES: any = {
         longDescription: 'Establish a solid layer of fundamentals, learn what\'s under the hood of Angular',
         iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png',
         category: 'BEGINNER',
-        lessonsCount: 10,
         seqNo: 8,
         url: 'angular-for-beginners',
-        price: 50
+        price: 50,
+        lessons: [
+
+            {
+                id: 1,
+                title: 'Angular Tutorial For Beginners - Build Your First App - Hello World Step By Step',
+                'duration': '4:17',
+                'seqNo': 1,
+                courseId: 5
+            },
+            {
+                id: 2,
+                title: 'Building Your First  Component - Component Composition',
+                'duration': '2:07',
+                'seqNo': 2,
+                courseId: 5
+            },
+            {
+                id: 3,
+                title: 'Component @Input - How To Pass Input Data To an  Component',
+                'duration': '2:33',
+                'seqNo': 3,
+                courseId: 5
+            },
+            {
+                id: 4,
+                title: ' Component Events - Using @Output to create custom events',
+                'duration': '4:44',
+                'seqNo': 4,
+                courseId: 5
+            },
+            {
+                id: 5,
+                title: ' Component Templates - Inline Vs External',
+                'duration': '2:55',
+                'seqNo': 5,
+                courseId: 5
+            },
+            {
+                id: 6,
+                title: 'Styling  Components - Learn About Component Style Isolation',
+                'duration': '3:27',
+                'seqNo': 6,
+                courseId: 5
+            },
+            {
+                id: 7,
+                title: ' Component Interaction - Extended Components Example',
+                'duration': '9:22',
+                'seqNo': 7,
+                courseId: 5
+            },
+            {
+                id: 8,
+                title: ' Components Tutorial For Beginners - Components Exercise !',
+                'duration': '1:26',
+                'seqNo': 8,
+                courseId: 5
+            },
+            {
+                id: 9,
+                title: ' Components Tutorial For Beginners - Components Exercise Solution Inside',
+                'duration': '2:08',
+                'seqNo': 9,
+                courseId: 5
+            },
+            {
+                id: 10,
+                title: ' Directives - Inputs, Output Event Emitters and How To Export Template References',
+                'duration': '4:01',
+                'seqNo': 10,
+                courseId: 5
+            },
+
+
+        ]
     },
 
     12: {
@@ -171,10 +336,96 @@ export const COURSES: any = {
         longDescription: 'Learn Web Security Fundamentals and apply them to defend an Angular / Node Application from multiple types of attacks.',
         iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png',
         category: 'ADVANCED',
-        lessonsCount: 11,
         seqNo: 13,
         url: 'angular-security-course',
-        price: 50
+        price: 50,
+        lessons: [
+
+// Security Course
+            {
+                id: 11,
+                title: 'Course Helicopter View',
+                'duration': '08:19',
+                'seqNo': 1,
+                courseId: 6
+            },
+
+            {
+                id: 12,
+                title: 'Installing Git, Node, NPM and Choosing an IDE',
+                'duration': '04:17',
+                'seqNo': 2,
+                courseId: 6
+            },
+
+            {
+                id: 13,
+                title: 'Installing The Lessons Code - Learn Why Its Essential To Use NPM 5',
+                'duration': '06:05',
+                'seqNo': 3,
+                courseId: 6
+            },
+
+            {
+                id: 14,
+                title: 'How To Run Node In TypeScript With Hot Reloading',
+                'duration': '03:57',
+                'seqNo': 4,
+                courseId: 6
+            },
+
+            {
+                id: 15,
+                title: 'Guided Tour Of The Sample Application',
+                'duration': '06:00',
+                'seqNo': 5,
+                courseId: 6
+            },
+            {
+                id: 16,
+                title: 'Client Side Authentication Service - API Design',
+                'duration': '04:53',
+                'seqNo': 6,
+                courseId: 6
+            },
+            {
+                id: 17,
+                title: 'Client Authentication Service - Design and Implementation',
+                'duration': '09:14',
+                'seqNo': 7,
+                courseId: 6
+            },
+            {
+                id: 18,
+                title: 'The New Angular HTTP Client - Doing a POST Call To The Server',
+                'duration': '06:08',
+                'seqNo': 8,
+                courseId: 6
+            },
+            {
+                id: 19,
+                title: 'User Sign Up Server-Side Implementation in Express',
+                'duration': '08:50',
+                'seqNo': 9,
+                courseId: 6
+            },
+            {
+                id: 20,
+                title: 'Introduction To Cryptographic Hashes - A Running Demo',
+                'duration': '05:46',
+                'seqNo': 10,
+                courseId: 6
+            },
+            {
+                id: 21,
+                title: 'Some Interesting Properties Of Hashing Functions - Validating Passwords',
+                'duration': '06:31',
+                'seqNo': 11,
+                courseId: 6
+            },
+
+
+        ]
     },
 
     7: {
@@ -183,10 +434,72 @@ export const COURSES: any = {
         longDescription: 'Learn Angular Progressive Web Applications, build the future of the Web Today.',
         iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png',
         category: 'ADVANCED',
-        lessonsCount: 8,
         seqNo: 14,
         url: 'angular-pwa-course',
-        price: 50
+        price: 50,
+        lessons: [
+
+// PWA course
+
+            {
+                id: 22,
+                title: 'Course Kick-Off - Install Node, NPM, IDE And Service Workers Section Code',
+                'duration': '07:19',
+                'seqNo': 1,
+                courseId: 7
+            },
+            {
+                id: 23,
+                title: 'Service Workers In a Nutshell - Service Worker Registration',
+                'duration': '6:59',
+                'seqNo': 2,
+                courseId: 7
+            },
+            {
+                id: 24,
+                title: 'Service Workers Hello World - Lifecycle Part 1 and PWA Chrome Dev Tools',
+                'duration': '7:28',
+                'seqNo': 3,
+                courseId: 7
+            },
+            {
+                id: 25,
+                title: 'Service Workers and Application Versioning - Install & Activate Lifecycle Phases',
+                'duration': '10:17',
+                'seqNo': 4,
+                courseId: 7
+            },
+
+            {
+                id: 26,
+                title: 'Downloading The Offline Page - The Service Worker Installation Phase',
+                'duration': '09:50',
+                'seqNo': 5,
+                courseId: 7
+            },
+            {
+                id: 27,
+                title: 'Introduction to the Cache Storage PWA API',
+                'duration': '04:44',
+                'seqNo': 6,
+                courseId: 7
+            },
+            {
+                id: 28,
+                title: 'View Service Workers HTTP Interception Features In Action',
+                'duration': '06:07',
+                'seqNo': 7,
+                courseId: 7
+            },
+            {
+                id: 29,
+                title: 'Service Workers Error Handling - Serving The Offline Page',
+                'duration': '5:38',
+                'seqNo': 8,
+                courseId: 7
+            },
+
+        ]
     },
 
     8: {
@@ -215,221 +528,6 @@ export const COURSES: any = {
 
 export const LESSONS = {
 
-    1: {
-        id: 1,
-        title: 'Angular Tutorial For Beginners - Build Your First App - Hello World Step By Step',
-        'duration': '4:17',
-        'seqNo': 1,
-        courseId: 5
-    },
-    2: {
-        id: 2,
-        title: 'Building Your First  Component - Component Composition',
-        'duration': '2:07',
-        'seqNo': 2,
-        courseId: 5
-    },
-    3: {
-        id: 3,
-        title: 'Component @Input - How To Pass Input Data To an  Component',
-        'duration': '2:33',
-        'seqNo': 3,
-        courseId: 5
-    },
-    4: {
-        id: 4,
-        title: ' Component Events - Using @Output to create custom events',
-        'duration': '4:44',
-        'seqNo': 4,
-        courseId: 5
-    },
-    5: {
-        id: 5,
-        title: ' Component Templates - Inline Vs External',
-        'duration': '2:55',
-        'seqNo': 5,
-        courseId: 5
-    },
-    6: {
-        id: 6,
-        title: 'Styling  Components - Learn About Component Style Isolation',
-        'duration': '3:27',
-        'seqNo': 6,
-        courseId: 5
-    },
-    7: {
-        id: 7,
-        title: ' Component Interaction - Extended Components Example',
-        'duration': '9:22',
-        'seqNo': 7,
-        courseId: 5
-    },
-    8: {
-        id: 8,
-        title: ' Components Tutorial For Beginners - Components Exercise !',
-        'duration': '1:26',
-        'seqNo': 8,
-        courseId: 5
-    },
-    9: {
-        id: 9,
-        title: ' Components Tutorial For Beginners - Components Exercise Solution Inside',
-        'duration': '2:08',
-        'seqNo': 9,
-        courseId: 5
-    },
-    10: {
-        id: 10,
-        title: ' Directives - Inputs, Output Event Emitters and How To Export Template References',
-        'duration': '4:01',
-        'seqNo': 10,
-        courseId: 5
-    },
-
-
-// Security Course
-    11: {
-        id: 11,
-        title: 'Course Helicopter View',
-        'duration': '08:19',
-        'seqNo': 1,
-        courseId: 6
-    },
-
-    12: {
-        id: 12,
-        title: 'Installing Git, Node, NPM and Choosing an IDE',
-        'duration': '04:17',
-        'seqNo': 2,
-        courseId: 6
-    },
-
-    13: {
-        id: 13,
-        title: 'Installing The Lessons Code - Learn Why Its Essential To Use NPM 5',
-        'duration': '06:05',
-        'seqNo': 3,
-        courseId: 6
-    },
-
-    14: {
-        id: 14,
-        title: 'How To Run Node In TypeScript With Hot Reloading',
-        'duration': '03:57',
-        'seqNo': 4,
-        courseId: 6
-    },
-
-    15: {
-        id: 15,
-        title: 'Guided Tour Of The Sample Application',
-        'duration': '06:00',
-        'seqNo': 5,
-        courseId: 6
-    },
-    16: {
-        id: 16,
-        title: 'Client Side Authentication Service - API Design',
-        'duration': '04:53',
-        'seqNo': 6,
-        courseId: 6
-    },
-    17: {
-        id: 17,
-        title: 'Client Authentication Service - Design and Implementation',
-        'duration': '09:14',
-        'seqNo': 7,
-        courseId: 6
-    },
-    18: {
-        id: 18,
-        title: 'The New Angular HTTP Client - Doing a POST Call To The Server',
-        'duration': '06:08',
-        'seqNo': 8,
-        courseId: 6
-    },
-    19: {
-        id: 19,
-        title: 'User Sign Up Server-Side Implementation in Express',
-        'duration': '08:50',
-        'seqNo': 9,
-        courseId: 6
-    },
-    20: {
-        id: 20,
-        title: 'Introduction To Cryptographic Hashes - A Running Demo',
-        'duration': '05:46',
-        'seqNo': 10,
-        courseId: 6
-    },
-    21: {
-        id: 21,
-        title: 'Some Interesting Properties Of Hashing Functions - Validating Passwords',
-        'duration': '06:31',
-        'seqNo': 11,
-        courseId: 6
-    },
-
-
-// PWA course
-
-    22: {
-        id: 22,
-        title: 'Course Kick-Off - Install Node, NPM, IDE And Service Workers Section Code',
-        'duration': '07:19',
-        'seqNo': 1,
-        courseId: 7
-    },
-    23: {
-        id: 23,
-        title: 'Service Workers In a Nutshell - Service Worker Registration',
-        'duration': '6:59',
-        'seqNo': 2,
-        courseId: 7
-    },
-    24: {
-        id: 24,
-        title: 'Service Workers Hello World - Lifecycle Part 1 and PWA Chrome Dev Tools',
-        'duration': '7:28',
-        'seqNo': 3,
-        courseId: 7
-    },
-    25: {
-        id: 25,
-        title: 'Service Workers and Application Versioning - Install & Activate Lifecycle Phases',
-        'duration': '10:17',
-        'seqNo': 4,
-        courseId: 7
-    },
-
-    26: {
-        id: 26,
-        title: 'Downloading The Offline Page - The Service Worker Installation Phase',
-        'duration': '09:50',
-        'seqNo': 5,
-        courseId: 7
-    },
-    27: {
-        id: 27,
-        title: 'Introduction to the Cache Storage PWA API',
-        'duration': '04:44',
-        'seqNo': 6,
-        courseId: 7
-    },
-    28: {
-        id: 28,
-        title: 'View Service Workers HTTP Interception Features In Action',
-        'duration': '06:07',
-        'seqNo': 7,
-        courseId: 7
-    },
-    29: {
-        id: 29,
-        title: 'Service Workers Error Handling - Serving The Offline Page',
-        'duration': '5:38',
-        'seqNo': 8,
-        courseId: 7
-    },
 
 // Serverless Angular with Firebase Course
 
@@ -1175,95 +1273,6 @@ export const LESSONS = {
         longDescription: ""
     },
 
-    131: {
-        id: 131,
-        title: "Setting Up the Development Environment",
-        'duration': "0:44",
-        'seqNo': 1,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    132: {
-        id: 132,
-        title: "Why Typescript? Key Benefits of the Language",
-        'duration': "12:33",
-        'seqNo': 2,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    133: {
-        id: 133,
-        title: "Compiling Your First Typescript Program",
-        'duration': "05:18",
-        'seqNo': 3,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    134: {
-        id: 134,
-        title: "The Typescript compiler noEmitOnError flag",
-        'duration': "02:30",
-        'seqNo': 4,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    135: {
-        id: 135,
-        title: "Running a Typescript Program in a Browser",
-        'duration': "06:21",
-        'seqNo': 5,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    136: {
-        id: 136,
-        title: "Understanding the differences between const, let and var",
-        'duration': "06:23",
-        'seqNo': 6,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    137: {
-        id: 137,
-        title: "Typescript primitive types - numbers, strings and booleans",
-        'duration': "07:59",
-        'seqNo': 7,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    138: {
-        id: 138,
-        title: "Typescript Template Strings",
-        'duration': "03:48",
-        'seqNo': 8,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    139: {
-        id: 139,
-        title: "Understanding Type Inference",
-        'duration': "03:40",
-        'seqNo': 9,
-        courseId: 20,
-        longDescription: ""
-    },
-
-    140: {
-        id: 140,
-        title: "When to use Typescript Type Annotations and Why",
-        'duration': "140",
-        'seqNo': 10,
-        courseId: 20,
-        longDescription: ""
-    }
 
 };
 

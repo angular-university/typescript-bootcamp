@@ -16,22 +16,26 @@ async function populateDb() {
 
     const courses = Object.values(COURSES) as Course[];
 
-    console.log(courses);
-
     for (let course of courses) {
+
+        const courseId = course.id;
+
         console.log(`Inserting course: ${course.title}`);
-        await AppDataSource
+
+        const savedCourse = await AppDataSource
             .getRepository(Course)
-            .save(course)
-    }
+            .save(course);
 
-    const lessons = Object.values(LESSONS) as Lesson[];
+        const lessons = findLessonsForCourse(courseId);
 
-    for (let lesson of lessons) {
-        console.log(`Inserting lesson: ${lesson.title}`);
-        await AppDataSource
-            .getRepository(Lesson)
-            .save(lesson)
+        for (let lesson of lessons) {
+            lesson.courseId = savedCourse.id;
+            console.log(`Inserting lesson: ${lesson.title}`);
+            await AppDataSource
+                .getRepository(Lesson)
+                .save(lesson);
+        }
+
     }
 
     const totalCourses = await AppDataSource
@@ -48,6 +52,14 @@ async function populateDb() {
 
     console.log(`Total lessons inserted: ${totalLessons}`);
 
+}
+
+function findLessonsForCourse(courseId:number) {
+    const lessons = Object.values(LESSONS) as Lesson[];
+
+    console.log(`total lessons ${lessons.length}, courseId = ${courseId}`);
+
+    return lessons.filter(lesson => lesson.courseId == courseId);
 }
 
 populateDb()
