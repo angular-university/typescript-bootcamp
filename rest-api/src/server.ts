@@ -19,6 +19,7 @@ import {AppDataSource} from "./data-source";
 import {logger} from "./logger";
 import {defaultErrorHandler} from "./middleware/default-error-handler";
 import {findCourseByUrl} from "./routes/find-course-by-url";
+import {findLessonsForCourse} from "./routes/find-lessons-for-course";
 
 
 logger.info("Starting up REST API ...");
@@ -33,7 +34,7 @@ function setupExpress() {
     app.route("/").get(root);
     app.route('/api/courses').get(getAllCourses);
     app.route('/api/courses/:courseUrl').get(findCourseByUrl);
-    //app.route('/api/lessons').get(searchLessons);
+    app.route('/api/courses/:courseId/lessons').get(findLessonsForCourse);
 
     app.use(defaultErrorHandler);
 }
