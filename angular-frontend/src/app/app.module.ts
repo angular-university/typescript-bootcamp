@@ -39,6 +39,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTreeModule} from '@angular/material/tree';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {LoginComponent} from "./login/login.component";
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
         CourseComponent,
         CoursesCardListComponent,
         CourseDialogComponent,
-        CreateCourseComponent
+        CreateCourseComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
