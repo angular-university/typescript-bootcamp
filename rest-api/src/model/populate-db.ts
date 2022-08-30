@@ -6,10 +6,11 @@ const result = dotenv.config();
 import "reflect-metadata";
 import {AppDataSource} from "../data-source";
 import {Course} from "./course";
-import {COURSES} from "./db-data";
+import {COURSES, USERS} from "./db-data";
 import {Lesson} from "./lesson";
 import {DeepPartial} from "typeorm";
-
+import {User} from "./user";
+const crypto = require('crypto');
 
 async function populateDb() {
 
@@ -37,6 +38,32 @@ async function populateDb() {
 
         }
 
+    }
+
+    const users = Object.values(USERS) as any[];
+
+    for (let userData of users) {
+
+        console.log(`Inserting user: ${userData}`);
+
+        const {email, pictureUrl, isAdmin, passwordSalt, plainTextPassword} = userData;
+
+        const user = AppDataSource.getRepository(User).create({
+            email,
+            pictureUrl,
+            isAdmin,
+            passwordSalt
+        });
+
+        user.passwordHash = crypto.pbkdf2Sync(
+            plainTextPassword,
+            passwordSalt,
+            1000,
+            64,
+            `sha512`)
+        .toString(`hex`);
+
+        await AppDataSource.manager.save(user);
 
     }
 
@@ -53,6 +80,13 @@ async function populateDb() {
         .getCount();
 
     console.log(`Total lessons inserted: ${totalLessons}`);
+
+    const totalUsers = await AppDataSource
+        .getRepository(User)
+        .createQueryBuilder()
+        .getCount();
+
+    console.log(`Total users inserted: ${totalUsers}`);
 
 }
 

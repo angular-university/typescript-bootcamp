@@ -1137,8 +1137,18 @@ export const USERS = {
     1: {
         id: 1,
         email: 'test@angular-university.io',
-        password: 'test',
-        pictureUrl: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png'
+        plainTextPassword: 'test',
+        passwordSalt: "o61TA7yaJIsa",
+        pictureUrl: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
+        isAdmin: false
+    },
+    2: {
+        id: 2,
+        email: 'admin@angular-university.io',
+        plainTextPassword: 'admin',
+        passwordSalt: "NydKRjIh4T4X",
+        pictureUrl: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
+        isAdmin: true
     }
 
 };
