@@ -89,7 +89,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
         ReactiveFormsModule,
         MatGridListModule,
         MatTreeModule,
-        ScrollingModule
+        ScrollingModule,
+        MatProgressSpinnerModule
     ],
     providers: [
         CoursesService,
