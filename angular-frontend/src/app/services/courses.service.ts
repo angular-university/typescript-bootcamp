@@ -7,6 +7,7 @@ import {Course} from "../model/course";
 import {map} from "rxjs/operators";
 import {Lesson} from "../model/lesson";
 import {environment} from "../../environments/environment";
+import {FindCourseResponse} from "../model/find-course-response";
 
 
 @Injectable()
@@ -16,8 +17,8 @@ export class CoursesService {
 
     }
 
-    findCourseByUrl(courseUrl: number): Observable<Course> {
-        return this.http.get<Course>(`${environment.apiBaseUrl}/api/courses/${courseUrl}`);
+    findCourseByUrl(courseUrl: number): Observable<FindCourseResponse> {
+        return this.http.get<FindCourseResponse>(`${environment.apiBaseUrl}/api/courses/${courseUrl}`);
     }
 
     findAllCourses(): Observable<Course[]> {

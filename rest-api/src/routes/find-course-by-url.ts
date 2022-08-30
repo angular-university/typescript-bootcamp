@@ -2,6 +2,7 @@ import {NextFunction, Request, Response} from "express";
 import {AppDataSource} from "../data-source";
 import {Course} from "../model/course";
 import {logger} from "../logger";
+import {Lesson} from "../model/lesson";
 
 const ROUTE_ID = `findCourseByUrl GET /api/courses/:courseUrl`;
 
@@ -28,7 +29,16 @@ export async function findCourseByUrl(request: Request, response: Response, next
             return;
         }
 
-        response.json(course).status(200);
+        const totalLessons = await AppDataSource
+            .getRepository(Lesson)
+            .createQueryBuilder("lessons")
+            .where("lessons.courseId = :courseId", {courseId: course.id})
+            .getCount();
+
+        response.json({
+            course,
+            totalLessons
+        }).status(200);
 
     } catch (error) {
         logger.error(`Error calling ${ROUTE_ID}`);

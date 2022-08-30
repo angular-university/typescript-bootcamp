@@ -1,8 +1,8 @@
 <div class="course">
 
-    <h2>{{course?.title}}</h2>
+    <h2>{{data?.course?.title}}</h2>
 
-    <img class="course-thumbnail mat-elevation-z7" [src]="course?.iconUrl">
+    <img class="course-thumbnail mat-elevation-z7" [src]="data?.course?.iconUrl">
 
     <div class="spinner-container" *ngIf="loading">
 
@@ -96,7 +96,7 @@
     </div>
 
     <mat-paginator class="mat-elevation-z8"
-                   [length]="10"
+                   [length]="data.totalLessons"
                    [pageSize]="3"
                    [pageSizeOptions]="[3, 5, 10]">
 

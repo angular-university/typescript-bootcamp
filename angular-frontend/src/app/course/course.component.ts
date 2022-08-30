@@ -9,6 +9,7 @@ import {debounceTime, distinctUntilChanged, startWith, tap, delay, catchError, f
 import {merge, fromEvent, throwError} from 'rxjs';
 import {Lesson} from '../model/lesson';
 import {SelectionModel} from '@angular/cdk/collections';
+import {FindCourseResponse} from "../model/find-course-response";
 
 
 @Component({
@@ -18,7 +19,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 })
 export class CourseComponent implements OnInit, AfterViewInit {
 
-    course:Course;
+    data:FindCourseResponse;
 
     lessons: Lesson[] = [];
 
@@ -44,9 +45,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
 
-        this.course = this.route.snapshot.data["course"];
-
-        console.log(this.course);
+        this.data = this.route.snapshot.data["course"] as FindCourseResponse;
 
         this.loadLessonsPage();
 
@@ -65,7 +64,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
         this.loading = true;
 
         this.coursesService.findCourseLessons(
-            this.course.id,
+            this.data.course.id,
             this.paginator?.pageIndex ?? 0,
             this.paginator?.pageSize ?? 3)
             .pipe(
