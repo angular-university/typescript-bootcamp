@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: "create-course",
@@ -8,5 +7,23 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   templateUrl: "create-course.component.html"
 })
 export class CreateCourseComponent {
+
+  form = this.fb.group({
+    title: ['', [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(60)
+    ]],
+    category: ['BEGINNER', Validators.required],
+    longDescription: ["", [Validators.required, Validators.minLength(3)]]
+  });
+
+  constructor(private fb: FormBuilder) {
+
+  }
+
+  get courseTitle() {
+    return this.form.controls['title'];
+  }
 
 }

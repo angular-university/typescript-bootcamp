@@ -2,44 +2,47 @@
 
   <h2 class="title">Create New Course</h2>
 
-    <mat-horizontal-stepper class="mat-elevation-z5"
-                            labelPosition="bottom"
-                            [linear]="true">
+  <div [formGroup]="form" class="course-details-form">
 
-        <mat-step errorMessage="Course details in error">
+    <mat-form-field>
 
-            <ng-template matStepLabel>Course Details</ng-template>
+      <input matInput placeholder="Course title" formControlName="title" #title>
 
-            <create-course-step-1></create-course-step-1>
+      <mat-hint align="end">
 
-            <div class="stepper-buttons">
+        {{title.value.length}} / 60
 
-                <button mat-raised-button color="primary" matStepperNext>
-                    Add Course Lessons
-                </button>
+      </mat-hint>
 
-            </div>
+      <mat-error *ngIf="courseTitle.errors?.minlength">
 
-        </mat-step>
+        A minimum length of 5 characters is required.
 
-        <mat-step errorMessage="Course lessons in error">
+      </mat-error>
 
-            <ng-template matStepLabel>Course Lessons</ng-template>
+    </mat-form-field>
 
-            <create-course-step-2></create-course-step-2>
+    <mat-form-field>
 
-            <div class="stepper-buttons">
+      <mat-select formControlName="category"  placeholder="Select category">
+        <mat-option>None</mat-option>
+        <mat-option value="BEGINNER">Beginner</mat-option>
+        <mat-option value="INTERMEDIATE">Intermediate</mat-option>
+        <mat-option value="ADVANCED">Advanced</mat-option>
+      </mat-select>
 
-                <button mat-raised-button matStepperPrevious>Back</button>
+    </mat-form-field>
 
-                <button mat-raised-button color="accent">Create Course</button>
+    <mat-form-field appearance="outline">
 
-            </div>
+        <textarea matInput placeholder="Description" formControlName="longDescription"
+                  cdkTextareaAutosize [cdkAutosizeMinRows]="2"
+                  [cdkAutosizeMaxRows]="5">
+        </textarea>
 
-        </mat-step>
+    </mat-form-field>
 
-    </mat-horizontal-stepper>
-
+  </div>
 
 </div>
 
