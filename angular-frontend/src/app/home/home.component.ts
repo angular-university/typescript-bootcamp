@@ -15,9 +15,7 @@ export class HomeComponent implements OnInit {
 
     advancedCourses$: Observable<Course[]>;
 
-    loading = true;
-
-    constructor(private coursesService: CoursesService) {
+    constructor(public coursesService: CoursesService) {
 
     }
 
@@ -35,12 +33,7 @@ export class HomeComponent implements OnInit {
 
   reload() {
 
-    this.loading = true;
-
-    const courses$ = this.coursesService.findAllCourses()
-      .pipe(
-        finalize(() => this.loading = false)
-      );
+    const courses$ = this.coursesService.findAllCourses();
 
     this.beginnerCourses$ = courses$.pipe(
       map(courses => courses.filter(course => course.category === 'BEGINNER') )

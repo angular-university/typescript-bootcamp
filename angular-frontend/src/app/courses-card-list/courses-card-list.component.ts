@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 import {Course} from '../model/course';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {openEditCourseDialog} from '../course-dialog/course-dialog.component';
-import {concatMap, filter, tap} from 'rxjs/operators';
+import {catchError, concatMap, filter, tap} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {CoursesService} from "../services/courses.service";
+import {throwError} from "rxjs";
 
 @Component({
   selector: 'courses-card-list',
@@ -19,14 +20,8 @@ export class CoursesCardListComponent implements OnInit {
   @Output()
   courseUpdated = new EventEmitter();
 
-  cols = 1;
-
-  rowHeight = '500px';
-
-  handsetPortrait = false;
-
-
   constructor(private dialog: MatDialog, private coursesService: CoursesService) {
+
   }
 
   ngOnInit() {
@@ -41,12 +36,27 @@ export class CoursesCardListComponent implements OnInit {
         tap(val => {
           console.log(`Updated course: `, val);
           this.courseUpdated.emit(val);
+        }),
+        catchError(err => {
+          console.log(`Error saving course: `, err);
+          return throwError(err);
         })
       )
       .subscribe();
   }
 
   onDeleteCourse(course: Course) {
+    this.coursesService.deleteCourse(course.id)
+      .pipe(
+        catchError(err => {
+          console.log(`Error saving course: `, err);
+          return throwError(err);
+        })
+
+      )
+      .subscribe(() => {
+
+      });
 
   }
 

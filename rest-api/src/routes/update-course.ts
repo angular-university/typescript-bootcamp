@@ -15,8 +15,8 @@ export async function updateCourse(request: Request, response: Response, next: N
         const courseId = request.params.courseId,
                 changes = request.body;
 
-        if (!courseId) {
-            throw `Could not extract courseId from the request.`;
+        if (!isInteger(courseId)) {
+            throw `Invalid course id ${courseId}`;
         }
 
         await AppDataSource

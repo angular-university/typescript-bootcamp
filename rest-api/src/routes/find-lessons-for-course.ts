@@ -17,8 +17,8 @@ export async function findLessonsForCourse(request: Request, response: Response,
             pageNumber = parseInt(query.pageNumber) || 0,
             pageSize = parseInt(query.pageSize) || 3;
 
-        if (!courseId) {
-            throw `Could not extract courseId from the request.`;
+        if (!isInteger(courseId)) {
+            throw `Invalid course id ${courseId}`;
         }
 
         const lessons: Lesson[] = await AppDataSource

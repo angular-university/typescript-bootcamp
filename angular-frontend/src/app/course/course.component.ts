@@ -23,8 +23,6 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     lessons: Lesson[] = [];
 
-    loading = false;
-
     @ViewChild(MatPaginator)
     paginator: MatPaginator;
 
@@ -35,7 +33,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
 
     constructor(private route: ActivatedRoute,
-                private coursesService: CoursesService) {
+                public coursesService: CoursesService) {
 
     }
 
@@ -61,8 +59,6 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     loadLessonsPage() {
 
-        this.loading = true;
-
         this.coursesService.findCourseLessons(
             this.data.course.id,
             this.paginator?.pageIndex ?? 0,
@@ -74,8 +70,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
                     alert("Error loading lessons.");
                     return throwError(err);
 
-                }),
-                finalize(() => this.loading = false)
+                })
             )
             .subscribe();
 
