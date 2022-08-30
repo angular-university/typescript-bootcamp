@@ -1,46 +1,61 @@
-<div class="create-course-panel data-form">
+<div class="create-course-panel" [formGroup]="form">
 
   <h2 class="title">Create New Course</h2>
 
-  <div [formGroup]="form" class="course-details-form">
+  <mat-form-field>
 
-    <mat-form-field>
+    <input matInput placeholder="Course title" formControlName="title" #title>
 
-      <input matInput placeholder="Course title" formControlName="title" #title>
+    <mat-hint align="end">
 
-      <mat-hint align="end">
+      {{title.value.length}} / 60
 
-        {{title.value.length}} / 60
+    </mat-hint>
 
-      </mat-hint>
+    <mat-error *ngIf="courseTitle.errors?.minlength">
 
-      <mat-error *ngIf="courseTitle.errors?.minlength">
+      A minimum length of 5 characters is required.
 
-        A minimum length of 5 characters is required.
+    </mat-error>
 
-      </mat-error>
+  </mat-form-field>
 
-    </mat-form-field>
+  <mat-form-field>
 
-    <mat-form-field>
+    <input matInput placeholder="Course url" formControlName="url">
 
-      <mat-select formControlName="category"  placeholder="Select category">
-        <mat-option>None</mat-option>
-        <mat-option value="BEGINNER">Beginner</mat-option>
-        <mat-option value="INTERMEDIATE">Intermediate</mat-option>
-        <mat-option value="ADVANCED">Advanced</mat-option>
-      </mat-select>
+  </mat-form-field>
 
-    </mat-form-field>
+  <mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <input matInput placeholder="Thumbnail url" formControlName="iconUrl">
 
-        <textarea matInput placeholder="Description" formControlName="longDescription"
-                  cdkTextareaAutosize [cdkAutosizeMinRows]="2"
-                  [cdkAutosizeMaxRows]="5">
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <mat-select formControlName="category" placeholder="Select category">
+      <mat-option>None</mat-option>
+      <mat-option value="BEGINNER">Beginner</mat-option>
+      <mat-option value="INTERMEDIATE">Intermediate</mat-option>
+      <mat-option value="ADVANCED">Advanced</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+
+        <textarea matInput placeholder="Description" formControlName="longDescription">
         </textarea>
 
-    </mat-form-field>
+  </mat-form-field>
+
+  <div class="form-actions">
+
+    <button mat-raised-button color="accent" (click)="onCreateCourse()">
+      <mat-icon>add</mat-icon>
+      Create Course
+    </button>
 
   </div>
 

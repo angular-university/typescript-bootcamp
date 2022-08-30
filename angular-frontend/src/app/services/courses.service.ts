@@ -62,4 +62,12 @@ export class CoursesService {
       );
   }
 
+  createCourse(data: Partial<Course>): Observable<Course> {
+    this.loading = true;
+    return this.http.post<Course>(`${environment.apiBaseUrl}/api/courses`, data)
+      .pipe(
+        finalize(() => this.loading = false)
+      );
+  }
+
 }
