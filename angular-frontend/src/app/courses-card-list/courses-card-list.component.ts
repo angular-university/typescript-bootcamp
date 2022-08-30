@@ -20,6 +20,9 @@ export class CoursesCardListComponent implements OnInit {
   @Output()
   courseUpdated = new EventEmitter();
 
+  @Output()
+  courseDeleted = new EventEmitter();
+
   constructor(private dialog: MatDialog, private coursesService: CoursesService) {
 
   }
@@ -52,12 +55,8 @@ export class CoursesCardListComponent implements OnInit {
           console.log(`Error saving course: `, err);
           return throwError(err);
         })
-
       )
-      .subscribe(() => {
-
-      });
-
+      .subscribe(() => this.courseDeleted.emit());
   }
 
 }

@@ -25,7 +25,8 @@
     <mat-tab label="Beginners">
 
       <courses-card-list [courses]="beginnerCourses$ | async"
-                         (courseUpdated)="onUpdate()">
+                         (courseUpdated)="reload()"
+                          (courseDeleted)="reload()">
 
       </courses-card-list>
 
@@ -34,7 +35,8 @@
     <mat-tab label="Advanced">
 
       <courses-card-list [courses]="advancedCourses$ | async"
-                         (courseUpdated)="onUpdate()">
+                         (courseUpdated)="reload()"
+                         (courseDeleted)="reload()">
 
       </courses-card-list>
 

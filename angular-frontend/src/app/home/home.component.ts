@@ -25,12 +25,6 @@ export class HomeComponent implements OnInit {
 
     }
 
-  onUpdate() {
-
-      this.reload();
-
-  }
-
   reload() {
 
     const courses$ = this.coursesService.findAllCourses();
