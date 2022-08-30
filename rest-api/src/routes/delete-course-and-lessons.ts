@@ -21,14 +21,14 @@ export async function deleteCourseAndLessons(request: Request, response: Respons
 
         await AppDataSource.manager.transaction(async (transactionalEntityManager) => {
 
-            await AppDataSource
+            await transactionalEntityManager
                 .createQueryBuilder()
                 .delete()
                 .from(Lesson)
                 .where("courseId = :courseId", { courseId})
                 .execute();
 
-            await AppDataSource
+            await transactionalEntityManager
                 .createQueryBuilder()
                 .delete()
                 .from(Course)

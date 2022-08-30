@@ -52,7 +52,7 @@
 
   <div class="form-actions">
 
-    <button mat-raised-button color="accent" (click)="onCreateCourse()">
+    <button mat-raised-button color="accent" (click)="onCreateCourse()" [disabled]="!form.valid">
       <mat-icon>add</mat-icon>
       Create Course
     </button>

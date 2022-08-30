@@ -39,8 +39,12 @@ export class CreateCourseComponent {
     const course = this.form.value as Partial<Course>;
 
     this.coursesService.createCourse(course)
-      .subscribe(() => {
-        this.router.navigateByUrl(`/courses`);
+      .subscribe(course => {
+
+        console.log(`Course created: `, course);
+
+        // this.router.navigateByUrl(`/courses`);
+
       });
 
   }
