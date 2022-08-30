@@ -5,13 +5,12 @@ import {logger} from "../logger";
 import {Lesson} from "../model/lesson";
 import {isInteger} from "../utils";
 
-const ROUTE_ID = `findLessonsForCourse GET /api/courses/:courseId/lessons`;
 
 export async function findLessonsForCourse(request: Request, response: Response, next: NextFunction) {
 
     try {
 
-        logger.debug(`Called ${ROUTE_ID}`);
+        logger.debug(`Called findLessonsForCourse()`);
 
         const courseId = request.params.courseId,
             query = request.query as any,
@@ -34,7 +33,7 @@ export async function findLessonsForCourse(request: Request, response: Response,
         response.json({lessons}).status(200);
 
     } catch (error) {
-        logger.error(`Error calling ${ROUTE_ID}`);
+        logger.error(`Error calling findLessonsForCourse()`);
         return next(error);
     }
 

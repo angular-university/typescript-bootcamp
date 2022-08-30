@@ -3,13 +3,11 @@ import {AppDataSource} from "../data-source";
 import {Course} from "../model/course";
 import {logger} from "../logger";
 
-const ROUTE_ID = `getAllCourses GET /api/courses`;
-
 export async function getAllCourses(request: Request, response: Response, next: NextFunction) {
 
     try {
 
-        logger.debug(`Called ${ROUTE_ID}`);
+        logger.debug(`Called getAllCourses()`);
         // throw {error: "Throwing ERROR"};
 
         const courses: Course[] = await AppDataSource
@@ -22,7 +20,7 @@ export async function getAllCourses(request: Request, response: Response, next: 
         response.json({courses}).status(200);
 
     } catch (error) {
-        logger.error(`Error calling ${ROUTE_ID}`);
+        logger.error(`Error calling getAllCourses()`);
         return next(error);
     }
 

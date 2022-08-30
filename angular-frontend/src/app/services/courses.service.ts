@@ -1,5 +1,3 @@
-
-
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -13,29 +11,38 @@ import {FindCourseResponse} from "../model/find-course-response";
 @Injectable()
 export class CoursesService {
 
-    constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
 
-    }
+  }
 
-    findCourseByUrl(courseUrl: number): Observable<FindCourseResponse> {
-        return this.http.get<FindCourseResponse>(`${environment.apiBaseUrl}/api/courses/${courseUrl}`);
-    }
+  findCourseByUrl(courseUrl: number): Observable<FindCourseResponse> {
+    return this.http.get<FindCourseResponse>(`${environment.apiBaseUrl}/api/courses/${courseUrl}`);
+  }
 
-    findAllCourses(): Observable<Course[]> {
-        return this.http.get(`${environment.apiBaseUrl}/api/courses`)
-            .pipe(
-                map(res => res['courses'])
-            );
-    }
+  findAllCourses(): Observable<Course[]> {
+    return this.http.get(`${environment.apiBaseUrl}/api/courses`)
+      .pipe(
+        map(res => res['courses'])
+      );
+  }
 
-    findCourseLessons(courseId:number, pageNumber = 0, pageSize = 3): Observable<Lesson[]> {
-        return this.http.get(`${environment.apiBaseUrl}/api/courses/${courseId}/lessons`, {
-            params: new HttpParams()
-                .set('pageNumber', pageNumber)
-                .set('pageSize', pageSize)
-        }).pipe(
-            map(res =>  res["lessons"])
-        );
-    }
+  findCourseLessons(courseId: number, pageNumber = 0, pageSize = 3): Observable<Lesson[]> {
+    return this.http.get(`${environment.apiBaseUrl}/api/courses/${courseId}/lessons`, {
+      params: new HttpParams()
+        .set('pageNumber', pageNumber)
+        .set('pageSize', pageSize)
+    }).pipe(
+      map(res => res["lessons"])
+    );
+  }
+
+  updateCourse(courseId: number, changes: Partial<Course>): Observable<any> {
+    return this.http.patch<Course>(`${environment.apiBaseUrl}/api/courses/${courseId}`, changes);
+  }
+
+  deleteCourse(courseId: number): Observable<any> {
+    return this.http.delete(`${environment.apiBaseUrl}/api/courses/${courseId}`);
+
+  }
 
 }

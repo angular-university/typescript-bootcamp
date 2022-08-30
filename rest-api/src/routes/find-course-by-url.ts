@@ -4,13 +4,11 @@ import {Course} from "../model/course";
 import {logger} from "../logger";
 import {Lesson} from "../model/lesson";
 
-const ROUTE_ID = `findCourseByUrl GET /api/courses/:courseUrl`;
-
 export async function findCourseByUrl(request: Request, response: Response, next: NextFunction) {
 
     try {
 
-        logger.debug(`Called ${ROUTE_ID}`);
+        logger.debug(`Called findCourseByUrl()`);
 
         const courseUrl = request.params.courseUrl;
 
@@ -41,7 +39,7 @@ export async function findCourseByUrl(request: Request, response: Response, next
         }).status(200);
 
     } catch (error) {
-        logger.error(`Error calling ${ROUTE_ID}`);
+        logger.error(`Error calling findCourseByUrl()`);
         return next(error);
     }
 
