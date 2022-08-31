@@ -4,6 +4,7 @@ import {AppDataSource} from "../data-source";
 import {logger} from "../logger";
 import {User} from "../model/user";
 import {calculatePasswordHash} from "../utils";
+import * as jwt from 'jsonwebtoken';
 
 export async function login(request: Request, response: Response, next: NextFunction) {
 
@@ -46,6 +47,10 @@ export async function login(request: Request, response: Response, next: NextFunc
         logger.info(`User ${email} has now logged in.`);
 
         const {pictureUrl, isAdmin} = user;
+
+        const authJwtToken = await jwt.sign({email, isAdmin}, process.env.JWT_SECRET);
+
+        response.cookie("AUTH_JWT", authJwtToken);
 
         response.json({
             email,
