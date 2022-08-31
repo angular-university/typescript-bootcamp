@@ -9,6 +9,7 @@ const result = dotenv.config();
 import {AppDataSource} from "../data-source";
 import {Course} from "./course";
 import {Lesson} from "./lesson";
+import {User} from "./user";
 
 
 async function deleteDb() {
@@ -25,6 +26,12 @@ async function deleteDb() {
 
     await AppDataSource
         .getRepository(Course)
+        .delete({});
+
+    console.log(`Clearing USERS table ...`);
+
+    await AppDataSource
+        .getRepository(User)
         .delete({});
 
 }

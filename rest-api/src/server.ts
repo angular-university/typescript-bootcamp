@@ -23,8 +23,10 @@ import {findLessonsForCourse} from "./routes/find-lessons-for-course";
 import {updateCourse} from "./routes/update-course";
 import {deleteCourseAndLessons} from "./routes/delete-course-and-lessons";
 import {createCourse} from "./routes/create-course";
+import {login} from "./routes/login";
 const cors = require('cors');
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 logger.info("Starting up REST API ...");
 
@@ -33,6 +35,7 @@ const app: Application = express();
 function setupExpress() {
 
     app.use(cors({origin: true}));
+    app.use(cookieParser());
     app.use(bodyParser.json());
 
     app.route("/").get(root);
@@ -42,6 +45,8 @@ function setupExpress() {
     app.route('/api/courses/:courseId').patch(updateCourse);
     app.route('/api/courses/:courseId').delete(deleteCourseAndLessons);
     app.route('/api/courses').post(createCourse);
+
+    app.route('/api/login').post(login);
 
     app.use(defaultErrorHandler);
 }

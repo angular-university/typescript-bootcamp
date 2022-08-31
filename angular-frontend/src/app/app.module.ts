@@ -87,7 +87,6 @@ import {LoginComponent} from "./login/login.component";
         MatProgressSpinnerModule
     ],
     providers: [
-        CoursesService,
         CourseResolver
     ],
     bootstrap: [AppComponent]

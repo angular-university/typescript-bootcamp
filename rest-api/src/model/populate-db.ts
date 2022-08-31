@@ -10,7 +10,7 @@ import {COURSES, USERS} from "./db-data";
 import {Lesson} from "./lesson";
 import {DeepPartial} from "typeorm";
 import {User} from "./user";
-const crypto = require('crypto');
+import {calculatePasswordHash} from "../utils";
 
 async function populateDb() {
 
@@ -55,13 +55,7 @@ async function populateDb() {
             passwordSalt
         });
 
-        user.passwordHash = crypto.pbkdf2Sync(
-            plainTextPassword,
-            passwordSalt,
-            1000,
-            64,
-            `sha512`)
-        .toString(`hex`);
+        user.passwordHash = await calculatePasswordHash(plainTextPassword, passwordSalt);
 
         await AppDataSource.manager.save(user);
 

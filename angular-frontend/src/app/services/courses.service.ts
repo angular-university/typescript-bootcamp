@@ -8,7 +8,9 @@ import {environment} from "../../environments/environment";
 import {FindCourseResponse} from "../model/find-course-response";
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CoursesService {
 
   loading: boolean = false;
