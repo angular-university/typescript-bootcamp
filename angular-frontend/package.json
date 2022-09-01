@@ -27,6 +27,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.2",
     "moment": "^2.22.2",
+    "ngx-cookie-service": "^14.0.1",
     "rxjs": "6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

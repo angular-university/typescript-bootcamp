@@ -40,6 +40,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./services/auth.guard";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
     declarations: [
@@ -88,7 +89,8 @@ import {AuthGuard} from "./services/auth.guard";
     ],
     providers: [
         CourseResolver,
-        AuthGuard
+        AuthGuard,
+        CookieService
     ],
     bootstrap: [AppComponent]
 })

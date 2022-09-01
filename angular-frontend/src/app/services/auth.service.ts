@@ -43,4 +43,8 @@ export class AuthService {
     localStorage.removeItem(USER_DATA);
   }
 
+  get isLoggedIn() {
+    return !!this.user;
+  }
+
 }
