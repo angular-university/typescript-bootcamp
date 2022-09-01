@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {finalize, tap} from "rxjs/operators";
+import {finalize, map, tap} from "rxjs/operators";
 import {environment} from "../../environments/environment";
 import {User} from "../model/user";
+import {LoginResponse} from "../model/login-response.";
+import {USER_DATA} from "../model/constants";
 
-const USER_DATA = "user_data";
 
 @Injectable({
   providedIn: "root"
@@ -28,13 +29,14 @@ export class AuthService {
 
   login(email:string, password:string): Observable<User> {
     this.loading = true;
-    return this.http.post<User>(`${environment.apiBaseUrl}/api/login`, {email, password})
+    return this.http.post<LoginResponse>(`${environment.apiBaseUrl}/api/login`, {email, password})
       .pipe(
         finalize(() => this.loading = false),
-        tap(user => {
-          this.user = user;
-          localStorage.setItem(USER_DATA, JSON.stringify(user));
-        })
+        tap(payload => {
+          this.user =payload?.user;
+          localStorage.setItem(USER_DATA, JSON.stringify(payload));
+        }),
+        map(payload => payload.user)
       );
   }
 

@@ -24,9 +24,9 @@ import {updateCourse} from "./routes/update-course";
 import {deleteCourseAndLessons} from "./routes/delete-course-and-lessons";
 import {createCourse} from "./routes/create-course";
 import {login} from "./routes/login";
+import {checkIfAuthenticated} from "./middleware/authentication.middleware";
 const cors = require('cors');
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
 
 logger.info("Starting up REST API ...");
 
@@ -35,16 +35,15 @@ const app: Application = express();
 function setupExpress() {
 
     app.use(cors({origin: true}));
-    app.use(cookieParser());
     app.use(bodyParser.json());
 
     app.route("/").get(root);
-    app.route('/api/courses').get(getAllCourses);
-    app.route('/api/courses/:courseUrl').get(findCourseByUrl);
-    app.route('/api/courses/:courseId/lessons').get(findLessonsForCourse);
-    app.route('/api/courses/:courseId').patch(updateCourse);
-    app.route('/api/courses/:courseId').delete(deleteCourseAndLessons);
-    app.route('/api/courses').post(createCourse);
+    app.route('/api/courses').get(checkIfAuthenticated, getAllCourses);
+    app.route('/api/courses/:courseUrl').get(checkIfAuthenticated, findCourseByUrl);
+    app.route('/api/courses/:courseId/lessons').get(checkIfAuthenticated, findLessonsForCourse);
+    app.route('/api/courses/:courseId').patch(checkIfAuthenticated, updateCourse);
+    app.route('/api/courses/:courseId').delete(checkIfAuthenticated, deleteCourseAndLessons);
+    app.route('/api/courses').post(checkIfAuthenticated, createCourse);
 
     app.route('/api/login').post(login);
 

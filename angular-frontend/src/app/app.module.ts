@@ -23,7 +23,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {CourseResolver} from "./services/course.resolver";
 import {CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -41,6 +41,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./services/auth.guard";
 import {CookieService} from "ngx-cookie-service";
+import {AuthInterceptor} from "./services/auth.interceptor";
 
 @NgModule({
     declarations: [
@@ -90,7 +91,12 @@ import {CookieService} from "ngx-cookie-service";
     providers: [
         CourseResolver,
         AuthGuard,
-        CookieService
+        CookieService,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true,
+      },
     ],
     bootstrap: [AppComponent]
 })

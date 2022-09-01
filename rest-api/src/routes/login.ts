@@ -5,6 +5,7 @@ import {logger} from "../logger";
 import {User} from "../model/user";
 import {calculatePasswordHash} from "../utils";
 import * as jwt from 'jsonwebtoken';
+import {AuthJwtPayload} from "../model/auth-jwt-payload";
 
 export async function login(request: Request, response: Response, next: NextFunction) {
 
@@ -48,14 +49,21 @@ export async function login(request: Request, response: Response, next: NextFunc
 
         const {pictureUrl, isAdmin} = user;
 
-        const authJwtToken = await jwt.sign({email, isAdmin}, process.env.JWT_SECRET);
+        const authJwt = {
+            userId: user.id,
+            email,
+            isAdmin
+        } as AuthJwtPayload;
 
-        response.cookie("AUTH_JWT", authJwtToken);
+        const authJwtToken = await jwt.sign(authJwt, process.env.JWT_SECRET);
 
         response.json({
-            email,
-            pictureUrl,
-            isAdmin
+            user: {
+                email,
+                pictureUrl,
+                isAdmin
+            },
+            authJwtToken
         }).status(200);
 
     } catch (error) {
