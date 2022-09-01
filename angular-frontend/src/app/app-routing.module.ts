@@ -6,12 +6,14 @@ import {CourseComponent} from "./course/course.component";
 import {CourseResolver} from "./services/course.resolver";
 import {CreateCourseComponent} from './create-course/create-course.component';
 import {LoginComponent} from "./login/login.component";
+import {AuthGuard} from "./services/auth.guard";
 
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
 
   },
   {
@@ -21,18 +23,21 @@ const routes: Routes = [
   },
   {
     path: "about",
-    component: AboutComponent
+    component: AboutComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'courses/:courseUrl',
     component: CourseComponent,
     resolve: {
       course: CourseResolver
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-new-course',
-    component: CreateCourseComponent
+    component: CreateCourseComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "**",

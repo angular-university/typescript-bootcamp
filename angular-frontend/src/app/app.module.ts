@@ -23,7 +23,6 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import {CoursesService} from "./services/courses.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CourseResolver} from "./services/course.resolver";
 import {CourseDialogComponent } from './course-dialog/course-dialog.component';
@@ -40,6 +39,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTreeModule} from '@angular/material/tree';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {LoginComponent} from "./login/login.component";
+import {AuthGuard} from "./services/auth.guard";
 
 @NgModule({
     declarations: [
@@ -87,7 +87,8 @@ import {LoginComponent} from "./login/login.component";
         MatProgressSpinnerModule
     ],
     providers: [
-        CourseResolver
+        CourseResolver,
+        AuthGuard
     ],
     bootstrap: [AppComponent]
 })
