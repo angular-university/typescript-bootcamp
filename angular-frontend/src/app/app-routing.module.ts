@@ -8,6 +8,7 @@ import {CreateCourseComponent} from './create-course/create-course.component';
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./services/auth.guard";
 import {CreateUserComponent} from "./create-user/create-user.component";
+import {AdminOnlyGuard} from "./services/admin-only.guard";
 
 
 const routes: Routes = [
@@ -33,16 +34,20 @@ const routes: Routes = [
     resolve: {
       course: CourseResolver
     },
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard]
   },
   {
     path: 'add-new-course',
     component: CreateCourseComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard]
   },
   {
     path: "create-user",
-    component: CreateUserComponent
+    component: CreateUserComponent,
+    canActivate: [AuthGuard, AdminOnlyGuard],
+    canActivateChild: [AuthGuard, AdminOnlyGuard]
   },
   {
     path: "**",

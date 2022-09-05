@@ -44,6 +44,7 @@ import {CookieService} from "ngx-cookie-service";
 import {AuthInterceptor} from "./services/auth.interceptor";
 import {CreateUserComponent} from "./create-user/create-user.component";
 import {MatSlideToggle, MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {AdminOnlyGuard} from "./services/admin-only.guard";
 
 @NgModule({
     declarations: [
@@ -96,6 +97,7 @@ import {MatSlideToggle, MatSlideToggleModule} from "@angular/material/slide-togg
         CourseResolver,
         AuthGuard,
         CookieService,
+        AdminOnlyGuard,
       {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
