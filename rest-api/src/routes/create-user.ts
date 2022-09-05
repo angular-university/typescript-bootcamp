@@ -37,14 +37,16 @@ export async function createUser(request: Request, response: Response, next: Nex
             return;
         }
 
-        const passwordHash = await calculatePasswordHash(password, user.passwordSalt);
+        const passwordSalt =  crypto.randomBytes(64).toString('hex');
+
+        const passwordHash = await calculatePasswordHash(password, passwordSalt);
 
         user = AppDataSource.getRepository(User).create({
             email,
             pictureUrl,
             isAdmin,
             passwordHash,
-            passwordSalt: crypto.randomBytes(64).toString('hex')
+            passwordSalt
         });
 
         await AppDataSource.manager.save(user);

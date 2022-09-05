@@ -42,6 +42,8 @@ import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./services/auth.guard";
 import {CookieService} from "ngx-cookie-service";
 import {AuthInterceptor} from "./services/auth.interceptor";
+import {CreateUserComponent} from "./create-user/create-user.component";
+import {MatSlideToggle, MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
     declarations: [
@@ -52,7 +54,8 @@ import {AuthInterceptor} from "./services/auth.interceptor";
         CoursesCardListComponent,
         CourseDialogComponent,
         CreateCourseComponent,
-        LoginComponent
+        LoginComponent,
+        CreateUserComponent
     ],
     imports: [
         BrowserModule,
@@ -86,7 +89,8 @@ import {AuthInterceptor} from "./services/auth.interceptor";
         MatGridListModule,
         MatTreeModule,
         ScrollingModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatSlideToggleModule
     ],
     providers: [
         CourseResolver,

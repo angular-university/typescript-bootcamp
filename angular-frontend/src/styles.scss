@@ -1,6 +1,10 @@
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
+p, h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto;
+}
+
 .spinner-container {
   position: absolute;
   top: 0;

@@ -7,6 +7,7 @@ import {CourseResolver} from "./services/course.resolver";
 import {CreateCourseComponent} from './create-course/create-course.component';
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./services/auth.guard";
+import {CreateUserComponent} from "./create-user/create-user.component";
 
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
     path: 'add-new-course',
     component: CreateCourseComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: "create-user",
+    component: CreateUserComponent
   },
   {
     path: "**",
