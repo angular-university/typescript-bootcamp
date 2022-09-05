@@ -14,7 +14,7 @@
         <span>About</span>
       </a>
 
-      <a mat-list-item routerLink="create-user">
+      <a mat-list-item routerLink="create-user" *ngIf="auth?.user?.isAdmin">
         <mat-icon>person_add</mat-icon>
         <span>Add User</span>
       </a>
