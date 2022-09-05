@@ -25,6 +25,7 @@ import {deleteCourseAndLessons} from "./routes/delete-course-and-lessons";
 import {createCourse} from "./routes/create-course";
 import {login} from "./routes/login";
 import {checkIfAuthenticated} from "./middleware/authentication.middleware";
+import {createUser} from "./routes/create-user";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -46,6 +47,7 @@ function setupExpress() {
     app.route('/api/courses').post(checkIfAuthenticated, createCourse);
 
     app.route('/api/login').post(login);
+    app.route('/api/users').post(checkIfAuthenticated, createUser);
 
     app.use(defaultErrorHandler);
 }
