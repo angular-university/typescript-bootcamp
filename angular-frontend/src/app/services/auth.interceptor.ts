@@ -8,25 +8,17 @@ import {LoginResponse} from "../model/login-response.";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  authJwtToken:string;
-
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if (!this.authJwtToken) {
+    const payload = localStorage.getItem(USER_DATA);
 
-      const payload = localStorage.getItem(USER_DATA);
-
-      if (payload) {
-        const userData = JSON.parse(payload) as LoginResponse;
-        this.authJwtToken = userData.authJwtToken;
-      }
-    }
-
-    if (this.authJwtToken) {
+    if (payload) {
+      const userData = JSON.parse(payload) as LoginResponse;
+      const authJwtToken = userData.authJwtToken;
 
       const cloned = req.clone({
         headers: req.headers
-          .set('Authorization',`${this.authJwtToken}`)
+          .set('Authorization',`${authJwtToken}`)
       });
 
       return next.handle(cloned);

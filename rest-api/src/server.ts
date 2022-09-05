@@ -26,6 +26,7 @@ import {createCourse} from "./routes/create-course";
 import {login} from "./routes/login";
 import {checkIfAuthenticated} from "./middleware/authentication.middleware";
 import {createUser} from "./routes/create-user";
+import {checkIfAdmin} from "./middleware/admin-only.middleware";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -47,7 +48,7 @@ function setupExpress() {
     app.route('/api/courses').post(checkIfAuthenticated, createCourse);
 
     app.route('/api/login').post(login);
-    app.route('/api/users').post(checkIfAuthenticated, createUser);
+    app.route('/api/users').post(checkIfAuthenticated, checkIfAdmin, createUser);
 
     app.use(defaultErrorHandler);
 }
