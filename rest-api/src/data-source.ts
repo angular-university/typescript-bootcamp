@@ -6,10 +6,10 @@ import {User} from "./model/user";
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: process.env.DB_HOST,
-    port: 5432,
-    username: "eosmrdxxecktcq",
-    password: "5d9325cf2df9d60ea07db967e31def88e317ceb1fddb9ad84f74b77b84e1e79f",
-    database: "d2pfrcmk1hbusn",
+    port: parseInt(process.env.DB_PORT),
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     ssl: true,
     extra: {
         // this config is specific to Heroku, it just says to just rely on the password to give access
