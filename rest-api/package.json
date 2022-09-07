@@ -1,7 +1,7 @@
 {
   "name": "rest-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "REST API project with Express and TypeORM",
   "scripts": {
     "build": "tsc",
     "start-server": "node dist/server.js"
