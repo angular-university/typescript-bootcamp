@@ -25,9 +25,14 @@ function startServer() {
 
     let port: number;
 
-    const portArg = process.argv[2];
+    const portEnv = process.env.PORT,
+        portArg = process.argv[2];
 
-    if (isInteger(portArg)) {
+    if (isInteger(portEnv)) {
+        port = parseInt(portEnv);
+    }
+
+    if (!port && isInteger(portArg)) {
         port = parseInt(portArg);
     }
 
