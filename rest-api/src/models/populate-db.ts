@@ -37,6 +37,8 @@ async function populateDb() {
 
             const lesson = lessonsRepository.create(lessonData);
 
+            lesson.course = course;
+
             await lessonsRepository.save(lesson);
         }
 
