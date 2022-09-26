@@ -1,19 +1,31 @@
 
-import {Response, Request} from "express";
+import {Response, Request, NextFunction} from "express";
 import {logger} from "../logger";
 import {AppDataSource} from "../data-source";
 import {Course} from "../models/course";
 
-export async function getAllCourses(request: Request, response: Response) {
+export async function getAllCourses(
+    request: Request, response: Response, next:NextFunction) {
 
-    logger.debug(`Called getAllCourses()`);
+    try {
 
-    const courses = await AppDataSource
-        .getRepository(Course)
-        .createQueryBuilder("courses")
-        .orderBy("courses.seqNo")
-        .getMany();
+        logger.debug(`Called getAllCourses()`);
 
-    response.status(200).json({courses});
+        throw {error: "Thrown ERROR!"};
+
+        const courses = await AppDataSource
+            .getRepository(Course)
+            .createQueryBuilder("courses")
+            .orderBy("courses.seqNo")
+            .getMany();
+
+        response.status(200).json({courses});
+
+    }
+    catch (error) {
+        logger.error(`Error calling getAllCourses()`);
+        return next(error);
+    }
+
 
 }
