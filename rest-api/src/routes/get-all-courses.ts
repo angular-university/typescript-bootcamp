@@ -11,8 +11,6 @@ export async function getAllCourses(
 
         logger.debug(`Called getAllCourses()`);
 
-        throw {error: "Thrown ERROR!"};
-
         const courses = await AppDataSource
             .getRepository(Course)
             .createQueryBuilder("courses")
