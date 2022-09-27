@@ -1,4 +1,3 @@
-
 import {Response, Request, NextFunction} from "express";
 import {logger} from "../logger";
 import {AppDataSource} from "../data-source";
