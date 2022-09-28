@@ -6,8 +6,7 @@ import {Lesson} from "../models/lesson";
 
 
 export async function findCourseByUrl(
-    request: Request, response: Response, next:NextFunction
-) {
+    request: Request, response: Response, next:NextFunction) {
 
     try {
 
