@@ -19,6 +19,7 @@ import {findCourseByUrl} from "./routes/find-course-by-url";
 import {findLessonsForCourse} from "./routes/find-lessons-for-course";
 import {updateCourse} from "./routes/update-course";
 import {createCourse} from "./routes/create-course";
+import {deleteCourseAndLessons} from "./routes/delete-course";
 
 const cors = require("cors");
 
@@ -44,6 +45,8 @@ function setupExpress() {
     app.route("/api/courses/:courseId").patch(updateCourse);
 
     app.route("/api/courses").post(createCourse);
+
+    app.route("/api/courses/:courseId").delete(deleteCourseAndLessons);
 
     app.use(defaultErrorHandler);
 
