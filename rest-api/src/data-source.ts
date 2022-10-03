@@ -1,6 +1,7 @@
 import {DataSource} from "typeorm";
 import {Course} from "./models/course";
 import {Lesson} from "./models/lesson";
+import {User} from "./models/user";
 
 
 export const AppDataSource = new DataSource({
@@ -18,7 +19,8 @@ export const AppDataSource = new DataSource({
     },
     entities: [
         Course,
-        Lesson
+        Lesson,
+        User
     ],
     synchronize: true,
     logging:true
