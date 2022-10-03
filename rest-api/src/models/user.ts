@@ -16,6 +16,9 @@ export class User {
     passwordHash:string;
 
     @Column()
+    passwordSalt:string;
+
+    @Column()
     pictureUrl:string;
 
     @Column()
