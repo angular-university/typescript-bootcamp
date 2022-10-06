@@ -21,6 +21,7 @@ import {updateCourse} from "./routes/update-course";
 import {createCourse} from "./routes/create-course";
 import {deleteCourseAndLessons} from "./routes/delete-course";
 import {createUser} from "./routes/create-user";
+import {login} from "./routes/login";
 
 const cors = require("cors");
 
@@ -50,6 +51,8 @@ function setupExpress() {
     app.route("/api/courses/:courseId").delete(deleteCourseAndLessons);
 
     app.route("/api/users").post(createUser);
+
+    app.route("/api/login").post(login);
 
     app.use(defaultErrorHandler);
 
