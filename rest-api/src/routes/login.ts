@@ -6,6 +6,12 @@ import {calculatePasswordHash} from "../utils";
 const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
 
+/**
+ *
+ * curl -X POST http://localhost:9000/api/login -H "Content-Type:application/json" -d '{"email": "test@angular-university.io", "password":"test"}'
+ *
+ */
+
 export async function login(request: Request, response: Response, next:NextFunction) {
 
     try {
