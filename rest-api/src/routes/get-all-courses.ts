@@ -8,7 +8,7 @@ export async function getAllCourses(
 
     try {
 
-        logger.debug(`Called getAllCourses()`);
+        logger.debug(`Called getAllCourses()`, request["user"]);
 
         const courses = await AppDataSource
             .getRepository(Course)
