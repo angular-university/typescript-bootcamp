@@ -14,6 +14,12 @@ IMPORTANT: Please install Node 16 LST (Long Term Support version).
 
 # Other Courses from the Angular University 
 
+# Modern Angular With Signals
+
+If you are looking for the [Modern Angular With Signals Course](https://angular-university.io/course/angular-signals-course), the repo with the full code can be found here:
+
+![Modern Angular With Signals Course](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg)
+
 # Angular Forms In Depth
 
 If you are looking for the [Angular Forms In Depth](https://angular-university.io/course/angular-forms-course) course, the repo with the full code can be found here:
