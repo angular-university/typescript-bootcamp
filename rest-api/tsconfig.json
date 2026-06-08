@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "target": "ES5",
+    "ignoreDeprecations": "6.0",
+    "rootDir": "./src",
     "outDir": "dist",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
+    "noImplicitAny": false
   }
 }

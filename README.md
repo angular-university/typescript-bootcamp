@@ -10,7 +10,7 @@ This master branch contains the *final version of the course code*, that you can
 
 # Installation pre-requisites
 
-IMPORTANT: Please install Node 16 LST (Long Term Support version).
+IMPORTANT: Please use Node 24 (Long Term Support version).
 
 # Angular University Courses
 

@@ -8,7 +8,7 @@ if (result.error) {
 }
 
 import "reflect-metadata";
-import * as express from 'express';
+import express from 'express';
 import {root} from "./routes/root";
 import {isInteger} from "./utils";
 import {logger} from "./logger";
